@@ -1,1314 +1,829 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imran Hossain Mallick | Actor • Model • Entrepreneur</title>
-    <meta name="description" content="Official portfolio of Imran Hossain Mallick - Indian Model, Actor & Fashion Entrepreneur based in Kolkata. Founder of BSP Fashion.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg: #0a0a0a;
-            --card: #121212;
-            --card-hover: #1a1a1a;
-            --text: #f5f5f5;
-            --muted: #a1a1a1;
-            --accent: #c9a227; /* Elegant Gold */
-            --accent-soft: rgba(201, 162, 39, 0.15);
-            --border: #222;
-            --success: #25d366;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, .logo {
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* ========== NAVBAR ========== */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 18px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            color: var(--text);
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        nav a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        nav a:hover,
-        nav a.active {
-            color: var(--accent);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--accent);
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        .imdb-btn {
-            background: #f5c518;
-            color: #000 !important;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 12px;
-        }
-
-        .imdb-btn:hover {
-            opacity: 0.9;
-        }
-
-        .imdb-btn::after {
-            display: none;
-        }
-
-        /* Mobile Menu */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        .menu-toggle span {
-            width: 24px;
-            height: 2px;
-            background: var(--text);
-            transition: all 0.3s;
-        }
-
-        /* ========== HERO ========== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
-                        url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2kOdPzPs_4WkK6p56eA92owg_7inTWPWvcQcSowKKUva1OdcsChhhpFigjjbR4TOa_36o4ygEYTToRmAFx5X0Wns9ALClETXUd3zEyg-AFIdObKTdDlGgkhPB5l19xe6ANQIHu5ZAhHnyUQaqMDV3tlQmy-6RQoxDiDclEGqYCMZnCGMt0xrY-zUXBK8/s1600/Picsart_24-05-04_16-43-38-716.jpg') no-repeat center center/cover;
-            padding: 120px 20px 80px;
-            position: relative;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 120px;
-            background: linear-gradient(transparent, var(--bg));
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-        }
-
-        .hero h1 {
-            font-size: clamp(36px, 7vw, 64px);
-            font-weight: 500;
-            letter-spacing: 3px;
-            margin-bottom: 12px;
-            line-height: 1.1;
-        }
-
-        .hero .subtitle {
-            font-size: 16px;
-            color: var(--muted);
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-            font-weight: 400;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 28px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #000;
-        }
-
-        .btn-primary:hover {
-            background: #dbb42c;
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            border: 1px solid rgba(255,255,255,0.3);
-            color: var(--text);
-            background: transparent;
-        }
-
-        .btn-outline:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        /* ========== SECTIONS ========== */
-        section {
-            padding: 100px 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            margin-bottom: 50px;
-        }
-
-        .section-header h2 {
-            font-size: 32px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            position: relative;
-            display: inline-block;
-            padding-left: 20px;
-        }
-
-        .section-header h2::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 4px;
-            height: 70%;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-
-        .section-header p {
-            color: var(--muted);
-            margin-top: 12px;
-            font-size: 15px;
-            max-width: 600px;
-        }
-
-        /* ========== ABOUT ========== */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.3fr 1fr;
-            gap: 40px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 40px;
-            overflow: hidden;
-        }
-
-        .about-text p {
-            color: var(--muted);
-            margin-bottom: 18px;
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        .about-text strong {
-            color: var(--text);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .stat-item {
-            background: #1a1a1a;
-            padding: 14px 16px;
-            border-radius: 8px;
-            border-left: 3px solid var(--accent);
-            transition: background 0.3s;
-        }
-
-        .stat-item:hover {
-            background: #222;
-        }
-
-        .stat-item span {
-            display: block;
-            font-size: 11px;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 4px;
-        }
-
-        .stat-item strong {
-            font-size: 15px;
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        /* ========== CARDS GRID ========== */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 28px;
-        }
-
-        .card {
-            background: var(--card);
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            transition: all 0.35s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            position: relative;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: #333;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .card-img {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-img::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);
-        }
-
-        .play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.9);
-            width: 52px;
-            height: 52px;
-            background: rgba(0,0,0,0.65);
-            border: 2px solid #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 18px;
-            opacity: 0;
-            transition: all 0.3s;
-            z-index: 2;
-        }
-
-        .card:hover .play-btn {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .card-body {
-            padding: 20px;
-        }
-
-        .card-body h3 {
-            font-size: 17px;
-            font-weight: 500;
-            margin-bottom: 6px;
-            letter-spacing: 0.3px;
-        }
-
-        .card-body p {
-            font-size: 13px;
-            color: var(--muted);
-        }
-
-        .badge {
-            display: inline-block;
-            font-size: 11px;
-            padding: 3px 10px;
-            background: var(--accent-soft);
-            color: var(--accent);
-            border-radius: 20px;
-            margin-top: 10px;
-            letter-spacing: 0.5px;
-        }
-
-        /* ========== SUB HEADINGS ========== */
-        .sub-heading {
-            font-size: 18px;
-            color: var(--accent);
-            margin: 50px 0 25px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-
-        /* ========== CONTACT ========== */
-        .contact-box {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 50px 40px;
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .contact-box p {
-            font-size: 16px;
-            color: var(--muted);
-            margin: 14px 0;
-        }
-
-        .contact-box a {
-            color: var(--accent);
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .contact-box a:hover {
-            opacity: 0.8;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 18px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--text);
-            font-size: 13px;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        /* ========== FOOTER ========== */
-        footer {
-            background: #050505;
-            border-top: 1px solid var(--border);
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .visitor-counter {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #111;
-            border: 1px solid #222;
-            padding: 10px 20px;
-            border-radius: 50px;
-            margin: 20px 0;
-            font-size: 14px;
-        }
-
-        .visitor-counter .count {
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 18px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .footer-links {
-            margin: 15px 0;
-            font-size: 13px;
-            color: var(--muted);
-        }
-
-        .footer-links a {
-            color: #f5c518;
-            text-decoration: none;
-        }
-
-        .made-by {
-            font-size: 12px;
-            color: #666;
-            margin-top: 15px;
-        }
-
-        /* ========== WHATSAPP FLOAT ========== */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: var(--success);
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-            z-index: 999;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
-        }
-
-        /* ========== ANIMATIONS ========== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 900px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-            .nav-container {
-                padding: 16px 24px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 280px;
-                height: 100vh;
-                background: #0f0f0f;
-                flex-direction: column;
-                padding: 100px 40px 40px;
-                gap: 25px;
-                transition: right 0.35s ease;
-                border-left: 1px solid var(--border);
-            }
-
-            nav.active {
-                right: 0;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .menu-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-            .menu-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-            .menu-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(5px, -5px);
-            }
-
-            section {
-                padding: 70px 20px;
-            }
-
-            .hero {
-                padding: 100px 20px 60px;
-            }
-
-            .about-grid {
-                padding: 28px 20px;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .whatsapp-float {
-                width: 52px;
-                height: 52px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 24px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imraan H. Mallick | Actor • Model • Entrepreneur</title>
+<meta name="description" content="Official portfolio of Imraan H. Mallick - Indian Model, Actor & Fashion Entrepreneur based in Kolkata.">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Imraan H. Mallick | Actor • Model • Fashion Entrepreneur">
+<meta property="og:description" content="Indian Model, Actor & Fashion Entrepreneur based in Kolkata. Founder of BSP Fashion.">
+<meta property="og:image" content="https://ik.imagekit.io/bsp/og-image.png?updatedAt=1788806325807">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0a0a0a;
+  --card: #141414;
+  --text: #ffffff;
+  --muted: #999;
+  --accent: #c9a84c;
+  --red-glow: #c41e3a;
+  --border: rgba(255,255,255,0.08);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+
+/* ========== NAV ========== */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 22px 48px;
+  background: rgba(10,10,10,0.6);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+.logo {
+  font-size: 18px; font-weight: 700; letter-spacing: 1px;
+  display: flex; align-items: center; gap: 10px;
+}
+.logo-dot {
+  width: 8px; height: 8px; background: var(--accent);
+  border-radius: 50%; box-shadow: 0 0 12px var(--accent);
+}
+nav { display: flex; gap: 32px; align-items: center; }
+nav a {
+  color: rgba(255,255,255,0.7); text-decoration: none;
+  font-size: 13px; font-weight: 500; transition: color 0.3s;
+}
+nav a:hover { color: #fff; }
+.nav-cta {
+  background: var(--accent); color: #111 !important;
+  padding: 9px 20px; border-radius: 8px; font-weight: 600;
+  transition: all 0.3s !important;
+}
+.nav-cta:hover { background: #dbb85a; transform: translateY(-1px); }
+
+.menu-btn {
+  display: none; flex-direction: column; gap: 5px; cursor: pointer;
+}
+.menu-btn span { width: 22px; height: 2px; background: #fff; transition: 0.3s; border-radius: 2px; }
+
+/* ========== HERO (Julian Tobias style) ========== */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  position: relative;
+  display: flex; flex-direction: column;
+  justify-content: flex-end;
+  padding: 120px 48px 60px;
+  overflow: hidden;
+}
+.hero-photo {
+  position: absolute; inset: 0;
+  background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2kOdPzPs_4WkK6p56eA92owg_7inTWPWvcQcSowKKUva1OdcsChhhpFigjjbR4TOa_36o4ygEYTToRmAFx5X0Wns9ALClETXUd3zEyg-AFIdObKTdDlGgkhPB5l19xe6ANQIHu5ZAhHnyUQaqMDV3tlQmy-6RQoxDiDclEGqYCMZnCGMt0xrY-zUXBK8/s1600/Picsart_24-05-04_16-43-38-716.jpg') center top/cover no-repeat;
+  z-index: 0;
+}
+/* Dramatic colored lighting like sample */
+.hero-photo::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: 
+    linear-gradient(135deg, rgba(196,30,58,0.45) 0%, transparent 50%),
+    linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.4) 40%, transparent 70%);
+  z-index: 1;
+}
+.hero-photo::after {
+  content: '';
+  position: absolute; top: -20%; left: -30%;
+  width: 80%; height: 80%;
+  background: radial-gradient(circle, rgba(196,30,58,0.35) 0%, transparent 60%);
+  filter: blur(40px);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+}
+.hero-content h1 {
+  font-size: clamp(48px, 7vw, 84px);
+  font-weight: 700; line-height: 1;
+  letter-spacing: -1.5px;
+  margin-bottom: 16px;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
+.hero-content .tagline {
+  font-size: 16px; color: rgba(255,255,255,0.75);
+  margin-bottom: 36px; font-weight: 400;
+}
+
+.hero-services {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  margin-top: 20px;
+}
+.service-card {
+  background: rgba(20,20,20,0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 18px 16px;
+  transition: all 0.35s var(--ease);
+}
+.service-card:hover {
+  background: rgba(30,30,30,0.85);
+  border-color: rgba(201,168,76,0.3);
+  transform: translateY(-3px);
+}
+.service-card .icon {
+  font-size: 20px; margin-bottom: 10px;
+}
+.service-card h4 {
+  font-size: 13px; font-weight: 600; margin-bottom: 4px;
+  font-family: 'Inter', sans-serif;
+}
+.service-card p {
+  font-size: 11px; color: var(--muted); line-height: 1.4;
+}
+
+/* Right side - Stats panel */
+.hero-right {
+  background: var(--bg);
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 100px 48px 60px;
+  border-left: 1px solid var(--border);
+  position: relative;
+}
+.hero-right::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.stats-big {
+  margin-bottom: 40px;
+}
+.stats-big .number {
+  font-size: 72px; font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  color: var(--accent);
+  line-height: 1; margin-bottom: 8px;
+}
+.stats-big .label {
+  font-size: 15px; color: var(--muted); font-weight: 500;
+}
+
+.stats-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-bottom: 40px;
+}
+.stat-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 18px;
+  transition: all 0.3s;
+}
+.stat-box:hover {
+  border-color: rgba(201,168,76,0.25);
+  transform: translateY(-2px);
+}
+.stat-box .num {
+  font-size: 28px; font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  color: var(--text); margin-bottom: 4px;
+}
+.stat-box .lbl {
+  font-size: 12px; color: var(--muted);
+}
+
+.hero-cta-group {
+  display: flex; gap: 12px; flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 26px; border-radius: 10px;
+  font-size: 13px; font-weight: 600;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: all 0.35s var(--ease);
+}
+.btn-primary {
+  background: var(--accent); color: #111;
+}
+.btn-primary:hover {
+  background: #dbb85a; transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201,168,76,0.3);
+}
+.btn-ghost {
+  background: transparent; color: #fff;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.btn-ghost:hover {
+  border-color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.05);
+}
+
+/* ========== SECTIONS ========== */
+section { padding: 100px 48px; max-width: 1300px; margin: 0 auto; }
+
+.sec-title {
+  font-size: 36px; font-weight: 600; margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+.sec-sub {
+  color: var(--muted); font-size: 15px; margin-bottom: 48px;
+  max-width: 480px;
+}
+
+/* About */
+.about-layout {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px;
+}
+.about-text p {
+  color: var(--muted); font-size: 15.5px; line-height: 1.8;
+  margin-bottom: 18px;
+}
+.about-text strong { color: #fff; }
+
+.profile-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+.pstat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+.pstat span {
+  display: block; font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;
+}
+.pstat strong { font-size: 15px; }
+
+/* Work Grid */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+.work-card {
+  background: var(--card);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  text-decoration: none; color: inherit;
+  transition: all 0.4s var(--ease);
+  position: relative;
+}
+.work-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(201,168,76,0.25);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.work-img {
+  height: 200px;
+  background-size: cover; background-position: center;
+  position: relative;
+}
+.work-img::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,10,10,0.7), transparent 50%);
+}
+.work-body { padding: 18px; }
+.work-body h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; font-family: 'Inter', sans-serif; }
+.work-body p { font-size: 13px; color: var(--muted); }
+.badge {
+  display: inline-block; margin-top: 10px;
+  font-size: 11px; padding: 4px 10px;
+  background: rgba(201,168,76,0.12); color: var(--accent);
+  border-radius: 6px; font-weight: 500;
+}
+.del-btn {
+  position: absolute; top: 10px; right: 10px; z-index: 5;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: #ef4444; color: #fff; border: none;
+  font-size: 14px; cursor: pointer;
+  display: none; align-items: center; justify-content: center;
+}
+.admin-mode .del-btn { display: flex; }
+
+/* Contact */
+.contact-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 60px 48px;
+  text-align: center;
+  max-width: 700px; margin: 0 auto;
+}
+.contact-box h2 { font-size: 32px; margin-bottom: 12px; }
+.contact-box > p { color: var(--muted); margin-bottom: 36px; }
+.contact-info { margin-bottom: 32px; }
+.contact-info a {
+  display: block; color: var(--accent); text-decoration: none;
+  font-size: 16px; margin: 10px 0; font-weight: 500;
+}
+.socials {
+  display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+}
+.socials a {
+  padding: 10px 20px; border: 1px solid var(--border);
+  border-radius: 8px; color: var(--muted); text-decoration: none;
+  font-size: 13px; transition: all 0.3s;
+}
+.socials a:hover {
+  border-color: var(--accent); color: var(--accent);
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+  font-size: 13px; color: var(--muted);
+}
+footer a { color: var(--accent); text-decoration: none; font-weight: 500; }
+footer a:hover { text-decoration: underline; }
+
+/* Admin + Modal */
+.admin-bar {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: #111; border-top: 1px solid var(--border);
+  padding: 12px 24px; display: none;
+  justify-content: space-between; align-items: center; z-index: 200;
+  font-size: 13px;
+}
+.admin-bar.active { display: flex; }
+
+.overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.9);
+  z-index: 300; display: none; align-items: center; justify-content: center;
+  padding: 20px; backdrop-filter: blur(10px);
+}
+.overlay.active { display: flex; }
+.modal {
+  background: #151515; border: 1px solid var(--border);
+  border-radius: 16px; width: 100%; max-width: 460px;
+  padding: 32px; position: relative; max-height: 90vh; overflow-y: auto;
+}
+.modal h3 { font-size: 24px; margin-bottom: 24px; }
+.fg { margin-bottom: 16px; }
+.fg label {
+  display: block; font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
+}
+.fg input, .fg select {
+  width: 100%; padding: 12px 14px;
+  background: #0c0c0c; border: 1px solid var(--border);
+  border-radius: 8px; color: #fff; font-size: 14px; font-family: inherit;
+}
+.fg input:focus, .fg select:focus { outline: none; border-color: var(--accent); }
+.modal-actions { display: flex; gap: 10px; margin-top: 24px; }
+.modal-x {
+  position: absolute; top: 14px; right: 16px;
+  background: none; border: none; color: #666; font-size: 24px; cursor: pointer;
+}
+
+.wa {
+  position: fixed; bottom: 28px; right: 28px;
+  width: 54px; height: 54px; background: #25d366;
+  color: #fff; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; font-size: 24px;
+  text-decoration: none; z-index: 90;
+  box-shadow: 0 6px 20px rgba(37,211,102,0.35);
+  transition: transform 0.3s;
+}
+.wa:hover { transform: scale(1.1); }
+
+.empty {
+  grid-column: 1 / -1; text-align: center; padding: 60px;
+  color: var(--muted); border: 1px dashed var(--border); border-radius: 12px;
+}
+
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.reveal.show { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 980px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { min-height: 70vh; }
+  .hero-right { border-left: none; border-top: 1px solid var(--border); padding: 48px 32px; }
+  .about-layout { grid-template-columns: 1fr; }
+  header, section, footer { padding-left: 24px; padding-right: 24px; }
+}
+@media (max-width: 700px) {
+  .hero-services { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  nav {
+    position: fixed; top: 0; right: -100%; width: 270px; height: 100vh;
+    background: #111; flex-direction: column; padding: 90px 28px;
+    gap: 22px; transition: right 0.4s;
+  }
+  nav.open { right: 0; }
+  .menu-btn { display: flex; }
+  .admin-bar { flex-direction: column; gap: 10px; }
+}
+</style>
 </head>
 <body>
 
-    <!-- ========== HEADER ========== -->
-    <header>
-        <div class="nav-container">
-            <div class="logo">IMRAN <span>H.</span> MALLICK</div>
-            
-            <div class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+<header>
+  <div class="logo"><span class="logo-dot"></span> Imraan H. Mallick</div>
+  <div class="menu-btn" id="menuBtn"><span></span><span></span><span></span></div>
+  <nav id="nav">
+    <a href="#about">About</a>
+    <a href="#films">Films</a>
+    <a href="#music">Music</a>
+    <a href="#photos">Photos</a>
+    <a href="#press">Press</a>
+    <a href="#contact">Contact</a>
+    <a href="https://www.imdb.com/name/nm15959834" target="_blank">IMDb</a>
+    <a href="#" class="nav-cta" id="adminBtn">Admin</a>
+  </nav>
+</header>
 
-            <nav id="mainNav">
-                <a href="#about">About</a>
-                <a href="#films">Short Films</a>
-                <a href="#music">Music</a>
-                <a href="#photos">Photoshoots</a>
-                <a href="#contact">Contact</a>
-                <a href="https://www.imdb.com/name/nm15959834" target="_blank" class="imdb-btn">IMDb</a>
-            </nav>
+<a href="https://wa.me/918981839702?text=Hello%20Imraan%2C%20I%20saw%20your%20portfolio." class="wa" target="_blank">💬</a>
+
+<!-- ========== HERO (Julian Tobias inspired) ========== -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-photo"></div>
+    <div class="hero-content">
+      <h1>Imraan H.<br>Mallick</h1>
+      <p class="tagline">Actor • Model • Fashion Entrepreneur based in Kolkata</p>
+      
+      <div class="hero-services">
+        <div class="service-card">
+          <div class="icon">🎬</div>
+          <h4>Film Acting</h4>
+          <p>Lead roles in Bengali short films & features</p>
         </div>
-    </header>
-
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/918981839702?text=Hello%20Imran%2C%20I%20saw%20your%20portfolio%20and%20want%20to%20connect." 
-       class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
-        💬
-    </a>
-
-    <!-- ========== HERO ========== -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>IMRAN HOSSAIN MALLICK</h1>
-            <p class="subtitle">Actor • Model • Fashion Entrepreneur</p>
-            <div class="hero-buttons">
-                <a href="https://www.imdb.com/name/nm15959834" target="_blank" class="btn btn-primary">View Official IMDb</a>
-                <a href="#films" class="btn btn-outline">Watch Work</a>
-            </div>
+        <div class="service-card">
+          <div class="icon">📺</div>
+          <h4>Music Videos</h4>
+          <p>Performances in popular music albums</p>
         </div>
-    </section>
-
-    <!-- ========== ABOUT ========== -->
-    <section id="about">
-        <div class="section-header fade-in">
-            <h2>About & Model Profile</h2>
-            <p>Indian Model, Actor & Fashion Entrepreneur based in Kolkata</p>
+        <div class="service-card">
+          <div class="icon">📷</div>
+          <h4>Modeling</h4>
+          <p>Editorial, commercial & ramp shows</p>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <div class="about-grid fade-in">
-            <div class="about-text">
-                <p><strong>Imran Hossain Mallick</strong> is an Indian model, actor, and fashion entrepreneur based in Kolkata. Born in Srinagar, Jammu & Kashmir into a Bengali family, he studied at Delhi Public School, Srinagar. After completing his education, he moved to Kolkata where he started his professional journey in modeling and acting.</p>
-                
-                <p>He is known for his leading roles in Bengali short films and his active contribution to the regional fashion and lifestyle industry. Imran is the founder of <strong>BSP Fashion</strong>, a kids and menswear clothing brand, and later expanded into <strong>BSP Tour and Travels</strong> focusing on Kashmir tourism.</p>
-                
-                <p><strong>Languages:</strong> Hindi, Bengali, English, Kashmiri<br>
-                <strong>Experience:</strong> Short Films, Ramp Shows, Photoshoots, Music Albums, Feature Movie</p>
-            </div>
+  <div class="hero-right">
+    <div class="stats-big">
+      <div class="number">8+</div>
+      <div class="label">Years of Experience</div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-box">
+        <div class="num">20+</div>
+        <div class="lbl">Projects Completed</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">12+</div>
+        <div class="lbl">Short Films</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">6+</div>
+        <div class="lbl">Music Videos</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">50+</div>
+        <div class="lbl">Photoshoots</div>
+      </div>
+    </div>
+    <div class="hero-cta-group">
+      <a href="#films" class="btn btn-primary">View Portfolio</a>
+      <a href="https://www.imdb.com/name/nm15959834" target="_blank" class="btn btn-ghost">IMDb Profile</a>
+    </div>
+  </div>
+</section>
 
-            <div class="stats-grid">
-                <div class="stat-item"><span>Age / Gender</span><strong>31 Years / Male</strong></div>
-                <div class="stat-item"><span>Height</span><strong>5'10"</strong></div>
-                <div class="stat-item"><span>Weight</span><strong>75 Kgs</strong></div>
-                <div class="stat-item"><span>Chest</span><strong>40"</strong></div>
-                <div class="stat-item"><span>Waist</span><strong>34"</strong></div>
-                <div class="stat-item"><span>Hips</span><strong>36" – 37"</strong></div>
-                <div class="stat-item"><span>Complexion</span><strong>Medium / Olive</strong></div>
-                <div class="stat-item"><span>Shoe Size</span><strong>8</strong></div>
-                <div class="stat-item"><span>Location</span><strong>Santoshpur, Kolkata</strong></div>
-                <div class="stat-item"><span>Passport</span><strong>Yes</strong></div>
-                <div class="stat-item"><span>Marital Status</span><strong>Married</strong></div>
-                <div class="stat-item"><span>Profession</span><strong>Apparel Trading</strong></div>
-            </div>
-        </div>
-    </section>
+<!-- ABOUT -->
+<section id="about">
+  <h2 class="sec-title reveal">About & Profile</h2>
+  <p class="sec-sub reveal">Indian Model, Actor & Fashion Entrepreneur</p>
+  <div class="about-layout reveal">
+    <div class="about-text">
+      <p><strong>Imraan H. Mallick</strong> is an Indian model, actor, and fashion entrepreneur based in Kolkata. Born in Srinagar, Jammu & Kashmir into a Bengali family, he studied at Delhi Public School, Srinagar. After completing his education, he moved to Kolkata to pursue modeling and acting.</p>
+      <p>He is known for leading roles in Bengali short films and is the founder of <strong>BSP Fashion</strong> (kids & menswear).</p>
+      <p><strong>Languages:</strong> Hindi, Bengali, English, Kashmiri</p>
+    </div>
+    <div class="profile-stats">
+      <div class="pstat"><span>Age / Gender</span><strong>31 Years / Male</strong></div>
+      <div class="pstat"><span>Height</span><strong>5'10"</strong></div>
+      <div class="pstat"><span>Weight</span><strong>72 Kgs</strong></div>
+      <div class="pstat"><span>Chest</span><strong>40"</strong></div>
+      <div class="pstat"><span>Waist</span><strong>34"</strong></div>
+      <div class="pstat"><span>Complexion</span><strong>Medium / Olive</strong></div>
+      <div class="pstat"><span>Location</span><strong>Santoshpur, Kolkata</strong></div>
+      <div class="pstat"><span>Passport</span><strong>Yes</strong></div>
+    </div>
+  </div>
+</section>
 
-    <!-- ========== SHORT FILMS ========== -->
-    <section id="films">
-        <div class="section-header fade-in">
-            <h2>Short Films & Web Projects</h2>
-            <p>Lead roles in independent Bengali short films and web projects</p>
-        </div>
+<!-- FILMS -->
+<section id="films">
+  <h2 class="sec-title reveal">Films & Projects</h2>
+  <p class="sec-sub reveal">Short films, Feature films & OTT work</p>
+  <div class="work-grid" id="filmsGrid">
+    <div class="empty">Loading...</div>
+  </div>
+</section>
 
-        <div class="grid">
-            <!-- Bags -->
-            <a href="https://www.youtube.com/watch?v=69tBdzAeQZE&t=392s" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://i.ibb.co/gLcRx5rx/Thumbnail-of-Bags.jpg');">
-                    <div class="play-btn">▶</div>
-                </div>
-                <div class="card-body">
-                    <h3>Bags (2026)</h3>
-                    <p>Bengali Short Film</p>
-                    <span class="badge">Lead Role</span>
-                </div>
-            </a>
+<!-- MUSIC -->
+<section id="music">
+  <h2 class="sec-title reveal">Music Videos</h2>
+  <p class="sec-sub reveal">Performances in music albums</p>
+  <div class="work-grid" id="musicGrid">
+    <div class="empty">Loading...</div>
+  </div>
+</section>
 
-            <!-- Viral -->
-            <a href="https://www.youtube.com/watch?v=cNmrnwNJqNA&t=163s" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://i.ibb.co/VYyGvP09/Banner.jpg');">
-                    <div class="play-btn">▶</div>
-                </div>
-                <div class="card-body">
-                    <h3>Viral (2026)</h3>
-                    <p>New Bengali Short Film</p>
-                    <span class="badge">Lead Role</span>
-                </div>
-            </a>
+<!-- PHOTOS -->
+<section id="photos">
+  <h2 class="sec-title reveal">Photoshoots & Portfolio</h2>
+  <p class="sec-sub reveal">Editorial, fashion & commercial shoots</p>
+  <div class="work-grid" id="photosGrid">
+    <div class="empty">Loading...</div>
+  </div>
+</section>
 
-            <!-- Karabas -->
-            <a href="https://www.imdb.com/video/vi2031602457/?ref_=nmvg_vi_1" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://i.ibb.co/7dG58kGf/Karabaas-Poster-JPG-1.jpg');">
-                    <div class="play-btn">▶</div>
-                </div>
-                <div class="card-body">
-                    <h3>Karabas (2025)</h3>
-                    <p>Bengali Short Film</p>
-                    <span class="badge">Lead Role</span>
-                </div>
-            </a>
+<!-- PRESS & MEDIA -->
+<section id="press">
+  <h2 class="sec-title reveal">Press & Media</h2>
+  <p class="sec-sub reveal">Press releases, media features & interviews</p>
+  <div class="work-grid" id="pressGrid">
+    <div class="empty">Loading...</div>
+  </div>
+</section>
 
-            <!-- Jog Biyog -->
-            <a href="https://www.youtube.com/watch?v=IUrgEMZJi1Q&t=63s" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://i.ibb.co/39hYD4nB/Jog-Biyog-Banner.jpg');">
-                    <div class="play-btn">▶</div>
-                </div>
-                <div class="card-body">
-                    <h3>Jog Biyog (2025)</h3>
-                    <p>Bengali Short Film</p>
-                    <span class="badge">Lead Role</span>
-                </div>
-            </a>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-box reveal">
+    <h2>Get In Touch</h2>
+    <p>Available for modeling, acting & brand collaborations</p>
+    <div class="contact-info">
+      <a href="tel:+918981839702">+91 8981839702</a>
+      <a href="mailto:bspkolkata.business@gmail.com">bspkolkata.business@gmail.com</a>
+    </div>
+    <div class="socials">
+      <a href="https://instagram.com/imran_mallick_official" target="_blank">Instagram</a>
+      <a href="https://facebook.com/imran.mallick.official" target="_blank">Facebook</a>
+      <a href="https://www.threads.net/@imran_mallick_official" target="_blank">Threads</a>
+      <a href="https://www.imdb.com/name/nm15959834" target="_blank">IMDb</a>
+    </div>
+  </div>
+</section>
 
-            <!-- Last Order -->
-            <a href="https://www.youtube.com/watch?v=CRh8IQ52iEE&t=291s" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://i.ibb.co/XkkXJrMV/Last-Order-Youtube-Banner.jpg');">
-                    <div class="play-btn">▶</div>
-                </div>
-                <div class="card-body">
-                    <h3>Last Order (2025)</h3>
-                    <p>Bengali Short Film</p>
-                    <span class="badge">Lead Role</span>
-                </div>
-            </a>
+<footer>
+  <div>© 2026-2036 All rights are reserved by Imraan H. Mallick</div>
+  <div>Visitors: <strong id="visitorCount">—</strong></div>
+  <div>Made with ❤️ by <a href="https://bengalsolutionpoint.vercel.app" target="_blank">Bengal Solution Point</a></div>
+</footer>
 
-            <!-- Meghla Akash -->
-            <a href="https://www.facebook.com/100088173677168/videos/730588552279563" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://i.ibb.co/Y4Q0pgGg/Meghla-Akash-O-Haowai-Mithai-Poster-1.jpg');">
-                    <div class="play-btn">▶</div>
-                </div>
-                <div class="card-body">
-                    <h3>Meghla Akash O Haowai Mithai (2023)</h3>
-                    <p>Bengali Short Film</p>
-                    <span class="badge">Lead Role</span>
-                </div>
-            </a>
+<div class="admin-bar" id="adminBar">
+  <span>Admin Mode</span>
+  <div>
+    <button class="btn btn-primary" style="padding:9px 16px;font-size:12px;" onclick="openAddModal()">+ Add Item</button>
+    <button class="btn btn-ghost" style="padding:9px 16px;font-size:12px;" onclick="logout()">Logout</button>
+  </div>
+</div>
 
-            <!-- Smoking Kills -->
-            <a href="https://www.youtube.com/watch?v=3ktUJYwzc4o" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2tTtpEDqz_tnvJqVGE3UaQwuzpCJrXt9_vr8MWD8roZxld8LHGUXoETjEbNvbbKfhQkb9xYvFbNBxX-Nw8buVGv-ZSm9dKoYj1kRyMu68hUlVbOnMoxw4ITgfrR5tVsh11IFf6_gzMOxfpGYZhFEx5dnD83AVcoaqvp5urULFSKxfOjMlDCSC6ON6280/w640-h360/Screenshot_20230512-234318_YouTube.jpg');">
-                    <div class="play-btn">▶</div>
-                </div>
-                <div class="card-body">
-                    <h3>Smoking Kills (2014)</h3>
-                    <p>Bengali Short Film</p>
-                    <span class="badge">Lead Role</span>
-                </div>
-            </a>
-        </div>
-    </section>
+<div class="overlay" id="loginModal">
+  <div class="modal">
+    <button class="modal-x" onclick="closeModal('loginModal')">&times;</button>
+    <h3>Admin Login</h3>
+    <div class="fg"><label>Email</label><input type="email" id="adminEmail"></div>
+    <div class="fg"><label>Password</label><input type="password" id="adminPassword"></div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" onclick="tryLogin()">Login</button>
+      <button class="btn btn-ghost" onclick="closeModal('loginModal')">Cancel</button>
+    </div>
+  </div>
+</div>
 
-    <!-- ========== MUSIC ALBUMS ========== -->
-    <section id="music">
-        <div class="section-header fade-in">
-            <h2>Music Albums</h2>
-            <p>Performances in music videos</p>
-        </div>
+<div class="overlay" id="addModal">
+  <div class="modal">
+    <button class="modal-x" onclick="closeModal('addModal')">&times;</button>
+    <h3>Add Work</h3>
+    <div class="fg">
+      <label>Category</label>
+      <select id="itemCategory">
+        <option value="short-film">Short Film</option>
+        <option value="film">Film</option>
+        <option value="ott">OTT</option>
+        <option value="music">Music Video</option>
+        <option value="image">Photoshoot</option>
+        <option value="press">Press / PR</option>
+      </select>
+    </div>
+    <div class="fg"><label>Title</label><input type="text" id="itemTitle"></div>
+    <div class="fg"><label>Year / Info</label><input type="text" id="itemYear"></div>
+    <div class="fg"><label>Image URL</label><input type="url" id="itemImage"></div>
+    <div class="fg"><label>Link</label><input type="url" id="itemLink"></div>
+    <div class="fg"><label>Badge</label><input type="text" id="itemBadge"></div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" onclick="saveItem()">Save</button>
+      <button class="btn btn-ghost" onclick="closeModal('addModal')">Cancel</button>
+    </div>
+  </div>
+</div>
 
-        <div class="grid">
-            <a href="https://www.youtube.com/watch?v=u5m6zQqxuOU" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://i.ibb.co/SwGvsN6p/file-000000002dec71fda76b2616ba1662da-1.png');">
-                    <div class="play-btn">▶</div>
-                </div>
-                <div class="card-body">
-                    <h3>Valobasi Onek Besi</h3>
-                    <p>Music Video Performance</p>
-                </div>
-            </a>
+<script type="module">
+const firebaseConfig = {
+  apiKey: "AIzaSyBCX2_zq8Jz2lXV7G-qIgP4t2TC9kRcq_E",
+  authDomain: "imran-s-portfolio-e083c.firebaseapp.com",
+  projectId: "imran-s-portfolio-e083c",
+  storageBucket: "imran-s-portfolio-e083c.firebasestorage.app",
+  messagingSenderId: "4380855368",
+  appId: "1:4380855368:web:a2c649a43ca2d2953f1c7d",
+  measurementId: "G-4N2TDW2TVC"
+};
 
-            <a href="https://www.youtube.com/watch?v=-suh0FwNLGQ" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiC7mAaHzcnUFc_blbKC-0ASYgZH-F-6GeN-V-GlKz9hSUxS6Njg4jlJz1tsOp9IJKeJcUviy-gId9pqOoOMHH0B5ywNhRtGMTzxOQkvzWRl6G9546UgW9hAZwUeDiB-8L5C8TDcY3R-Mlin0oCj5Rl28JaSxI3GI0Hvw3bowXzcpPaS5CaUyzgJuJV1vg/w640-h360/IMG-20250617-WA0076.jpg');">
-                    <div class="play-btn">▶</div>
-                </div>
-                <div class="card-body">
-                    <h3>Piriter Nagor</h3>
-                    <p>Music Video Performance</p>
-                </div>
-            </a>
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
-            <a href="https://youtu.be/8HMVbf27ahI" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIm2y0mATQBJFZBCIio_c2oJtfSj0ferUNY9FGiAiWyi0SqDlg24sR-9HjAhugWXu8PXltKyxEgKo0Un4q4JebpkD1ACanoqkL0xtITQqspLn6q5iyoFD9iL6Bc1b3M94F-z2nBfxeiKgFdQrHMun_FQzQQ37E_WEHaAmE1z5q2onXtXMojbACae8lDlE/w640-h362/Screenshot_20240628-004838_YouTube.jpg');">
-                    <div class="play-btn">▶</div>
-                </div>
-                <div class="card-body">
-                    <h3>Mera Intekam Dekhegi</h3>
-                    <p>Music Video Performance</p>
-                </div>
-            </a>
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-            <a href="https://youtu.be/rgV_E997tXI" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlMb6uh2-5aNhmvXCN4a-K6HVkEddEM-iQFmN6xBt2HAIBNGiyoYxoHfgcqbUWe9su1fWvSVGhIHLvFnAg6YljS940yV3aR9O2Kly2o5K_EBmoDyDw6j_pYk8lrvWurQ2lL2LVdDl8nVKnCVt_z5A_h9qXmhtf8XXZT4165teD0uu3SuLRBzfq2Mzy0GA/w640-h360/Screenshot_20240628-004345_YouTube.jpg');">
-                    <div class="play-btn">▶</div>
-                </div>
-                <div class="card-body">
-                    <h3>E Pothe Kono Rin Nei</h3>
-                    <p>Music Video Performance</p>
-                </div>
-            </a>
-        </div>
-    </section>
+let isAdmin = false;
+let data = [];
 
-        <!-- ========== PHOTOSHOOTS ========== -->
-    <section id="photos">
-        <div class="section-header fade-in">
-            <h2>Photoshoots & Portfolio</h2>
-            <p>Professional modeling and fashion photography</p>
-        </div>
+// Default works (jab Firebase empty ho to yeh dikhenge)
+const defaultWorks = [
+  { id: "d1", category: "short-film", title: "Bags (2026)", year: "Bengali Short Film", image: "https://i.ibb.co/gLcRx5rx/Thumbnail-of-Bags.jpg", link: "https://www.youtube.com/watch?v=69tBdzAeQZE&t=392s", badge: "Lead Role" },
+  { id: "d2", category: "short-film", title: "Viral (2026)", year: "New Bengali Short Film", image: "https://i.ibb.co/VYyGvP09/Banner.jpg", link: "https://www.youtube.com/watch?v=cNmrnwNJqNA&t=163s", badge: "Lead Role" },
+  { id: "d3", category: "short-film", title: "Karabas (2025)", year: "Bengali OTT Series", image: "https://i.ibb.co/7dG58kGf/Karabaas-Poster-JPG-1.jpg", link: "https://www.imdb.com/video/vi2031602457/?ref_=nmvg_vi_1", badge: "Lead Role" },
+  { id: "d4", category: "short-film", title: "Jog Biyog (2025)", year: "Bengali Short Film", image: "https://i.ibb.co/39hYD4nB/Jog-Biyog-Banner.jpg", link: "https://www.youtube.com/watch?v=IUrgEMZJi1Q&t=63s", badge: "Lead Role" },
+  { id: "d5", category: "short-film", title: "Last Order (2025)", year: "Bengali Short Film", image: "https://i.ibb.co/XkkXJrMV/Last-Order-Youtube-Banner.jpg", link: "https://www.youtube.com/watch?v=CRh8IQ52iEE&t=291s", badge: "Lead Role" },
+  { id: "d6", category: "short-film", title: "Meghla Akash O Haowai Mithai (2023)", year: "Bengali Short Film", image: "https://i.ibb.co/Y4Q0pgGg/Meghla-Akash-O-Haowai-Mithai-Poster-1.jpg", link: "https://www.facebook.com/100088173677168/videos/730588552279563", badge: "Lead Role" },
+  { id: "d7", category: "short-film", title: "Smoking Kills (2014)", year: "Bengali Short Film", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2tTtpEDqz_tnvJqVGE3UaQwuzpCJrXt9_vr8MWD8roZxld8LHGUXoETjEbNvbbKfhQkb9xYvFbNBxX-Nw8buVGv-ZSm9dKoYj1kRyMu68hUlVbOnMoxw4ITgfrR5tVsh11IFf6_gzMOxfpGYZhFEx5dnD83AVcoaqvp5urULFSKxfOjMlDCSC6ON6280/w640-h360/Screenshot_20230512-234318_YouTube.jpg", link: "https://www.youtube.com/watch?v=3ktUJYwzc4o", badge: "Lead Role" },
+  { id: "d8", category: "music", title: "Valobasi Onek Besi", year: "Music Video", image: "https://i.ibb.co/SwGvsN6p/file-000000002dec71fda76b2616ba1662da-1.png", link: "https://www.youtube.com/watch?v=u5m6zQqxuOU", badge: "" },
+  { id: "d9", category: "music", title: "Piriter Nagor", year: "Music Video", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiC7mAaHzcnUFc_blbKC-0ASYgZH-F-6GeN-V-GlKz9hSUxS6Njg4jlJz1tsOp9IJKeJcUviy-gId9pqOoOMHH0B5ywNhRtGMTzxOQkvzWRl6G9546UgW9hAZwUeDiB-8L5C8TDcY3R-Mlin0oCj5Rl28JaSxI3GI0Hvw3bowXzcpPaS5CaUyzgJuJV1vg/w640-h360/IMG-20250617-WA0076.jpg", link: "https://www.youtube.com/watch?v=-suh0FwNLGQ", badge: "" },
+  { id: "d10", category: "music", title: "Mera Intekam Dekhegi", year: "Music Video", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIm2y0mATQBJFZBCIio_c2oJtfSj0ferUNY9FGiAiWyi0SqDlg24sR-9HjAhugWXu8PXltKyxEgKo0Un4q4JebpkD1ACanoqkL0xtITQqspLn6q5iyoFD9iL6Bc1b3M94F-z2nBfxeiKgFdQrHMun_FQzQQ37E_WEHaAmE1z5q2onXtXMojbACae8lDlE/w640-h362/Screenshot_20240628-004838_YouTube.jpg", link: "https://youtu.be/8HMVbf27ahI", badge: "" },
+  { id: "d11", category: "music", title: "E Pothe Kono Rin Nei", year: "Music Video", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlMb6uh2-5aNhmvXCN4a-K6HVkEddEM-iQFmN6xBt2HAIBNGiyoYxoHfgcqbUWe9su1fWvSVGhIHLvFnAg6YljS940yV3aR9O2Kly2o5K_EBmoDyDw6j_pYk8lrvWurQ2lL2LVdDl8nVKnCVt_z5A_h9qXmhtf8XXZT4165teD0uu3SuLRBzfq2Mzy0GA/w640-h360/Screenshot_20240628-004345_YouTube.jpg", link: "https://youtu.be/rgV_E997tXI", badge: "" },
+  { id: "d12", category: "image", title: "Editorial Look", year: "High-fashion concept", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2kOdPzPs_4WkK6p56eA92owg_7inTWPWvcQcSowKKUva1OdcsChhhpFigjjbR4TOa_36o4ygEYTToRmAFx5X0Wns9ALClETXUd3zEyg-AFIdObKTdDlGgkhPB5l19xe6ANQIHu5ZAhHnyUQaqMDV3tlQmy-6RQoxDiDclEGqYCMZnCGMt0xrY-zUXBK8/s1600/Picsart_24-05-04_16-43-38-716.jpg", link: "", badge: "" },
+  { id: "d13", category: "image", title: "Dadagiri Tea Brand Shoot", year: "Commercial campaign", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOoSOcUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw_Kfw4NhJr3QVH8i7A7yRPtFKVfl15UQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-QfOpTL6tCmljgCZYg_R7s8HLB2bI5RzpVgCgGSy8r5HIeEAqUuYhsllas/w640-h427/20231222_024809_0000.png", link: "", badge: "" }
+];
 
-        <div class="grid">
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-NGYnJNN9qYEOsfjjRvuKb1O6kNYhi15p0SCOiZ3bzERTufmZHIPw_YHjA8HN6M-Ll2bqIZxnWKEn9wpHKksBm1A_JHezarh4LZxmCr-H0DMgcovHz6aEkkZk9G6JWd5UoG3jhyLW0pJC4wBiIFufQAtluuNrGLI39AASQW6dR5M18NjgGTFL-M6-raU/s4055/Picsart_25-12-30_02-10-28-013.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-NGYnJNN9qYEOsfjjRvuKb1O6kNYhi15p0SCOiZ3bzERTufmZHIPw_YHjA8HN6M-Ll2bqIZxnWKEn9wpHKksBm1A_JHezarh4LZxmCr-H0DMgcovHz6aEkkZk9G6JWd5UoG3jhyLW0pJC4wBiIFufQAtluuNrGLI39AASQW6dR5M18NjgGTFL-M6-raU/s16000/Picsart_25-12-30_02-10-28-013.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitoTZSQJl6qQ80GkQRTtc8R4hzGAaKcBC55i577As0bdef2czCDDllt2jU9c5R0_Y9mnwOa9U_9HneabEwyNXCJ0s_moebymt3DCgYJ03Gee3urBPLQfAkkZbHWlFWj1Dvx7RQGa4hs4GoR3bj14j0bEjZD42rgWmPy7Y6yRjoy9kBOqVtd2kosiRma4E/s4055/Picsart_25-12-30_02-12-36-562.png" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitoTZSQJl6qQ80GkQRTtc8R4hzGAaKcBC55i577As0bdef2czCDDllt2jU9c5R0_Y9mnwOa9U_9HneabEwyNXCJ0s_moebymt3DCgYJ03Gee3urBPLQfAkkZbHWlFWj1Dvx7RQGa4hs4GoR3bj14j0bEjZD42rgWmPy7Y6yRjoy9kBOqVtd2kosiRma4E/s16000/Picsart_25-12-30_02-12-36-562.png'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0YI7X6kGwn0HlE7olo9LE3fEe11_mm5Mv_vkzUEZ1iPAg1i-Ojf6XxnkTNtoMnEKrVO991hUPPM_EufzJUZmZ9oF8k3BZhvoERDHXxNoSCxeMfc-IMh6y28C0NWL0tDBcTmZBp86cVs-qoIAOHyMHtL2vHeGapnNh7gxLtAVLAorC7YGBIvB3e4xeKw8/s4055/Picsart_25-12-30_02-14-43-713.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0YI7X6kGwn0HlE7olo9LE3fEe11_mm5Mv_vkzUEZ1iPAg1i-Ojf6XxnkTNtoMnEKrVO991hUPPM_EufzJUZmZ9oF8k3BZhvoERDHXxNoSCxeMfc-IMh6y28C0NWL0tDBcTmZBp86cVs-qoIAOHyMHtL2vHeGapnNh7gxLtAVLAorC7YGBIvB3e4xeKw8/s16000/Picsart_25-12-30_02-14-43-713.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_50gOPkkpCLRUyD-9phnLLP4My0jK_vrxZGpmwWWjMK8g3f6yPCv2Fia7Tnk1Kbg-ejLdgpOEqsu1vvADxbMjh_akgW5upVb4RfelAcEaw8NVos96gQBDkr95RZ9maLp1p7rzgT0a4Bv6GHghkB0cFnCK1OqaOMWLJ1A1AqLtt5gbk-lPCR15ehk8Ca0/s4096/Picsart_25-12-22_14-38-27-995.png" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_50gOPkkpCLRUyD-9phnLLP4My0jK_vrxZGpmwWWjMK8g3f6yPCv2Fia7Tnk1Kbg-ejLdgpOEqsu1vvADxbMjh_akgW5upVb4RfelAcEaw8NVos96gQBDkr95RZ9maLp1p7rzgT0a4Bv6GHghkB0cFnCK1OqaOMWLJ1A1AqLtt5gbk-lPCR15ehk8Ca0/s16000/Picsart_25-12-22_14-38-27-995.png'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYxWPdUzev87IoIoMXC-e8VdM8vujFRMKAVFgtyI3u5_y6L8DiekxJfuwXE8xV1MgcXuAndTNZAosK5MHvk3goTvGBye31NhqozG7BegNlfaK3qsHPdwUtsP6POPTEecSRA0JM7Q4Ool9v6WZgYfk3usvuktbjjYI7jdJj2Hkxt9JnwzFT-qCNmfMcG8o/s4096/Picsart_25-12-22_14-05-28-815.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYxWPdUzev87IoIoMXC-e8VdM8vujFRMKAVFgtyI3u5_y6L8DiekxJfuwXE8xV1MgcXuAndTNZAosK5MHvk3goTvGBye31NhqozG7BegNlfaK3qsHPdwUtsP6POPTEecSRA0JM7Q4Ool9v6WZgYfk3usvuktbjjYI7jdJj2Hkxt9JnwzFT-qCNmfMcG8o/s16000/Picsart_25-12-22_14-05-28-815.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7IShyq_buPZXBowuimqqFc1tQRlvd3j1Pk3wH-e3FI67JtDVmysMyZ327QcaAlJ4qzxGoDOVuPF5-MHyzN7E8grD4ehU-goaGeLHc3eIz98SltVst5a6Z6YjihnsoB5EktoiFxiih7KxBchyEthdJcl9yNq8fWHIsFSHrLNQ9ZO3_FzPLhWDxAZb9eHc/s4096/Picsart_25-12-22_14-59-59-170.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7IShyq_buPZXBowuimqqFc1tQRlvd3j1Pk3wH-e3FI67JtDVmysMyZ327QcaAlJ4qzxGoDOVuPF5-MHyzN7E8grD4ehU-goaGeLHc3eIz98SltVst5a6Z6YjihnsoB5EktoiFxiih7KxBchyEthdJcl9yNq8fWHIsFSHrLNQ9ZO3_FzPLhWDxAZb9eHc/s16000/Picsart_25-12-22_14-59-59-170.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGEszO6x_HgLcdSd80xn_pCwN25s7C68A2ngSHTggbeqPZ8uEp0vk-oArgItDYbShEwouj0ZKaJnFQTOaAs_5aj1hvDp140DDocfiQkcQfa1YGbvNj_3EqXMRXHZ1-TNfPR2yT1fN6uhNRmB1Y-zx50zrTgbqXg9xuwUSqhWs2nRJi8ty2rSOyoF3h7X8/s4096/Picsart_25-12-25_14-19-21-317.png" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGEszO6x_HgLcdSd80xn_pCwN25s7C68A2ngSHTggbeqPZ8uEp0vk-oArgItDYbShEwouj0ZKaJnFQTOaAs_5aj1hvDp140DDocfiQkcQfa1YGbvNj_3EqXMRXHZ1-TNfPR2yT1fN6uhNRmB1Y-zx50zrTgbqXg9xuwUSqhWs2nRJi8ty2rSOyoF3h7X8/s16000/Picsart_25-12-25_14-19-21-317.png'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8hyphenhyphenq23l3KCfmOGR6Ow6wk8h_6laA1HLxALmKJrCWolZqqb-D82NKUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-LEGkuSv5uRBHNtBZq4SToXvp2DzROJRtcr7EMEibfFEiGup2BExShOuDf-M9olbWTvxDJjHFUM0sYt7qQISZqa4/s4096/Picsart_25-12-10_22-21-12-447%20(2).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8hyphenhyphenq23l3KCfmOGR6Ow6wk8h_6laA1HLxALmKJrCWolZqqb-D82NKUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-LEGkuSv5uRBHNtBZq4SToXvp2DzROJRtcr7EMEibfFEiGup2BExShOuDf-M9olbWTvxDJjHFUM0sYt7qQISZqa4/s16000/Picsart_25-12-10_22-21-12-447%20(2).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmYNnb2YnSzWzqA_0QURAFn80T87LdhsYSDWddOnIEkmNQfqgLxqPfNtlvdPki79-wyx1h51reKfXzURdX9lpCgo0JbXXRflypG8Q0-voAoDOsCxgFb6akKbaMb44nT432kmib60VcIGchhn5mZQMdt0QO7KZ74zyVT_wi2f1KIQt3kAtQWVvOdm_oXAo/s3928/Picsart_25-12-22_14-39-29-975.png" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmYNnb2YnSzWzqA_0QURAFn80T87LdhsYSDWddOnIEkmNQfqgLxqPfNtlvdPki79-wyx1h51reKfXzURdX9lpCgo0JbXXRflypG8Q0-voAoDOsCxgFb6akKbaMb44nT432kmib60VcIGchhn5mZQMdt0QO7KZ74zyVT_wi2f1KIQt3kAtQWVvOdm_oXAo/s16000/Picsart_25-12-22_14-39-29-975.png'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlndHR9r_2ZyQkCWx6QwwVAiyEUmU4gmoqbWcXzHNGQv5Cb2EUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-Q2di8FukRQ4eHMuXACr1xMxTGLf3ItSGhofZuQR1aKdB2NKIUBQpDS8DdvxXiYB60xZhN5lzcx8j-QaLBjB79LYcp10/s1024/1763240947268%20(2).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlndHR9r_2ZyQkCWx6QwwVAiyEUmU4gmoqbWcXzHNGQv5Cb2EUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-Q2di8FukRQ4eHMuXACr1xMxTGLf3ItSGhofZuQR1aKdB2NKIUBQpDS8DdvxXiYB60xZhN5lzcx8j-QaLBjB79LYcp10/s16000/1763240947268%20(2).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhobrmO92Jvm62zOV1EF_wTCKf_JVjiCGzPWmpGZz7hFPzX7pQufP2SYtoZh61ljd3R9hE8d0xw48FUMGUk93KpQqCEmEqHqV0Bf37TUCpoftvOxDGfNko6CRp2RTYOsyCx3n9JnFWIB61JwTC90h5-DXORXSLqoTlvbRQ5fNHQTPyatW0qfkMhoYSC7uc/s1024/1763240925875%20(2).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhobrmO92Jvm62zOV1EF_wTCKf_JVjiCGzPWmpGZz7hFPzX7pQufP2SYtoZh61ljd3R9hE8d0xw48FUMGUk93KpQqCEmEqHqV0Bf37TUCpoftvOxDGfNko6CRp2RTYOsyCx3n9JnFWIB61JwTC90h5-DXORXSLqoTlvbRQ5fNHQTPyatW0qfkMhoYSC7uc/s16000/1763240925875%20(2).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4mWOEkilcolcd84h0qKoLyyjOAUawVL68Ncu259uq0kGgWbTaZVzLbNFGaWSSRzzisxRR0s_1YUT_XDTmDb2F5U7Ruwol5635H7_lv35H5Bhlzy-s8o69K9Fdh9M74kMFLiDcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq_hmmfZubr4hRU/s1024/1763240915302%20(2).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4mWOEkilcolcd84h0qKoLyyjOAUawVL68Ncu259uq0kGgWbTaZVzLbNFGaWSSRzzisxRR0s_1YUT_XDTmDb2F5U7Ruwol5635H7_lv35H5Bhlzy-s8o69K9Fdh9M74kMFLiDcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq_hmmfZubr4hRU/s16000/1763240915302%20(2).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj85YspWAH5CwI-V9lghdLg9E90YPPWvHrlS7pPTM1r_ltrr0LwGON2sSp1aXf8ko6o8MS_sTmybcUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-L83rDJCFCLZ_LlEODgLR-wnIb7A_voh8cekWIhuwRVCuqfWWWeLjG4uu2H3sdLvQ/s1248/1763147671653%20(1).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj85YspWAH5CwI-V9lghdLg9E90YPPWvHrlS7pPTM1r_ltrr0LwGON2sSp1aXf8ko6o8MS_sTmybcUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-L83rDJCFCLZ_LlEODgLR-wnIb7A_voh8cekWIhuwRVCuqfWWWeLjG4uu2H3sdLvQ/s16000/1763147671653%20(1).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidrHJUnjxdfcA9WgNj8PDL8SXOHbd4TmwHtqHGUqFwuftTIChvs8Tgfzao1md_qnAzWDEnNPKc-k9wBzyO1PoTTuRaVDAGNSpPsG_58IGPdmh47sqTReoJu8xbVnFL8kDKJ4Pd7EdWMeShyF4auteFOeyhYy2u8mVpZh0BGk2-ejbCDTrrIE14zDCsCgo/s1184/1763829310272%20(1).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidrHJUnjxdfcA9WgNj8PDL8SXOHbd4TmwHtqHGUqFwuftTIChvs8Tgfzao1md_qnAzWDEnNPKc-k9wBzyO1PoTTuRaVDAGNSpPsG_58IGPdmh47sqTReoJu8xbVnFL8kDKJ4Pd7EdWMeShyF4auteFOeyhYy2u8mVpZh0BGk2-ejbCDTrrIE14zDCsCgo/s16000/1763829310272%20(1).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFgxi2D5IanEFaxCBnUPQ1LxO7QVqXqrCFh_9gaukumUgcJ0neuSq_mmPUZ4a4yiHZCOXR1TxJ_VpuDpV067vXlmFwC74sDawqrfxoNyQqMJo-Mft80_ldfPiPb-WNMrK5AKAsWX6oMLOQaS2fxmqJUk_Lm8axtDl8LuJl_A5SI0v7iwBZr7B05AbOyMI/s1184/1763829477533%20(2).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFgxi2D5IanEFaxCBnUPQ1LxO7QVqXqrCFh_9gaukumUgcJ0neuSq_mmPUZ4a4yiHZCOXR1TxJ_VpuDpV067vXlmFwC74sDawqrfxoNyQqMJo-Mft80_ldfPiPb-WNMrK5AKAsWX6oMLOQaS2fxmqJUk_Lm8axtDl8LuJl_A5SI0v7iwBZr7B05AbOyMI/s16000/1763829477533%20(2).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTvn7QrLZgmfeFDcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq-y5He5GmY1aqpYFXi3sb3UQ4PR-j0WBv1B_DCITBybqV6ZK-W_OZPXezRAgX9e5srz-Qh07LL6CG_WYj7U2UQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw/s1184/1763829581574%20(1).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTvn7QrLZgmfeFDcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq-y5He5GmY1aqpYFXi3sb3UQ4PR-j0WBv1B_DCITBybqV6ZK-W_OZPXezRAgX9e5srz-Qh07LL6CG_WYj7U2UQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw/s16000/1763829581574%20(1).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmbZAVMeoBFd9kiaj0vn85wqYRlohXb8hDgcw6LQRsoxy1Cl-QCixj3d_D7i_Q3magBhyXx58t6TnJaIASV6RDNuYteh5bRuBB1hM8pQl6QvxybxnKDj3ehfi9M9y_TOL4ffKTKUEgVBhb5VO6MTJN4Vd0JWZ8UzGM-Duzzsa6eLYVIvXkxAncbmQBWv0/s2000/Photoroom-20250411_203424.png" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmbZAVMeoBFd9kiaj0vn85wqYRlohXb8hDgcw6LQRsoxy1Cl-QCixj3d_D7i_Q3magBhyXx58t6TnJaIASV6RDNuYteh5bRuBB1hM8pQl6QvxybxnKDj3ehfi9M9y_TOL4ffKTKUEgVBhb5VO6MTJN4Vd0JWZ8UzGM-Duzzsa6eLYVIvXkxAncbmQBWv0/s16000/Photoroom-20250411_203424.png'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoqeXHXdbx5Tn2XreS76aloSBaomkpEjZe05w65ysZzc_iMUlAzHZgtiDZaCTFa9fIbDz8cqZAGysP8mrDFNSyjNL_fQt0gBOoieqluA4hKJxW_XCSg6YV17E_t3JhvCKqBjrFZsZ8auRjgIdjQglMwhot2WVhTfaJ4wc7KklBLhTNaBhHIrDkyqhDiLk/s2048/Photoroom-20250411_002141.png" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoqeXHXdbx5Tn2XreS76aloSBaomkpEjZe05w65ysZzc_iMUlAzHZgtiDZaCTFa9fIbDz8cqZAGysP8mrDFNSyjNL_fQt0gBOoieqluA4hKJxW_XCSg6YV17E_t3JhvCKqBjrFZsZ8auRjgIdjQglMwhot2WVhTfaJ4wc7KklBLhTNaBhHIrDkyqhDiLk/s16000/Photoroom-20250411_002141.png'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw_IvixO1n9w1Tp1MshhW8oxHd1hDDAhyGDKXr48WOnGHRUzAKdRJBK00vjvVDdNG-h0iWj-qFB7Urafh8FMGU0acGAed9C4dH-nxbYYY1AHlsMAkF7mCn3tPqp662daybvERzwsKQYqnzM8/s3017/Picsart_23-11-13_00-44-47-242.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw_IvixO1n9w1Tp1MshhW8oxHd1hDDAhyGDKXr48WOnGHRUzAKdRJBK00vjvVDdNG-h0iWj-qFB7Urafh8FMGU0acGAed9C4dH-nxbYYY1AHlsMAkF7mCn3tPqp662daybvERzwsKQYqnzM8/s16000/Picsart_23-11-13_00-44-47-242.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiY5ybmWviz3ew9GTVG_da8h6htvOz8O7TNHO3NfdB_eWbQsqK2MqOIq8OUSLwZHa6uhaXewYzro_JZbKKZdDQHtpj_NGl98HJCJHo026UUHQBRKSIEg0yC7NfVAfCsZdbTNnzA3j2RuRPYZRwzL0XEdy1XRBcP1voKdkhmCxlfUi45yjwQkcZU6q8Ni-M/s2709/Picsart_23-10-11_23-16-50-843.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiY5ybmWviz3ew9GTVG_da8h6htvOz8O7TNHO3NfdB_eWbQsqK2MqOIq8OUSLwZHa6uhaXewYzro_JZbKKZdDQHtpj_NGl98HJCJHo026UUHQBRKSIEg0yC7NfVAfCsZdbTNnzA3j2RuRPYZRwzL0XEdy1XRBcP1voKdkhmCxlfUi45yjwQkcZU6q8Ni-M/s16000/Picsart_23-10-11_23-16-50-843.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH399ynnNhJ_dQU-5asqeUhL973X68Mo-XEiraatjVTMGndAbufegr21JDQcHWwgR0K-hPZ3v24ZOpP6r5M00qpsYI8TLdJTp-S8If782u8E86GvTkPVD-mAntWy_Uz3-PCETbCxehpUYUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw/s2249/Picsart_23-10-13_22-48-53-943.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH399ynnNhJ_dQU-5asqeUhL973X68Mo-XEiraatjVTMGndAbufegr21JDQcHWwgR0K-hPZ3v24ZOpP6r5M00qpsYI8TLdJTp-S8If782u8E86GvTkPVD-mAntWy_Uz3-PCETbCxehpUYUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw/s16000/Picsart_23-10-13_22-48-53-943.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw_H-1p2uTyPm7pUMN5F_Clx9f0wr4PmLeu8oIFwilfTcXs3z59-bLyyfqJNntD2oSI19eWJh8J6Mx9DrGXKEv3ojKmqw8Cv9pscK-RLHCFbCDy2uRW8l96NmoGs3UBpfNw6Pvz54VZ40PtdRJ3E-KjA/s2048/Firefly%2020250511152525.png" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw_H-1p2uTyPm7pUMN5F_Clx9f0wr4PmLeu8oIFwilfTcXs3z59-bLyyfqJNntD2oSI19eWJh8J6Mx9DrGXKEv3ojKmqw8Cv9pscK-RLHCFbCDy2uRW8l96NmoGs3UBpfNw6Pvz54VZ40PtdRJ3E-KjA/s16000/Firefly%2020250511152525.png'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZBOI4esLu08LB37f3uQtz-zM7T3TPBbdYh7Egc0QnGzxnQ6Fxp-dyC8qHvwOvdipJ1Z3ZG3O4wz_jBtfA3fU8OrqDLdNftiE5CKCXYlrmqyf635eChPQ-o7JDCC3MrdBx4Qzp6Vhl-GWGdklDcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq/s3264/Firefly%2020250401151801.png" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZBOI4esLu08LB37f3uQtz-zM7T3TPBbdYh7Egc0QnGzxnQ6Fxp-dyC8qHvwOvdipJ1Z3ZG3O4wz_jBtfA3fU8OrqDLdNftiE5CKCXYlrmqyf635eChPQ-o7JDCC3MrdBx4Qzp6Vhl-GWGdklDcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq/s16000/Firefly%2020250401151801.png'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-vJ2Bvpipl039oYpjY4tdzOk3z48uLCFHRBQUS6wW8CCI-lH0tEEj-jvovBVVIxczXuCO20XhieWHtZ-Qeu9bXKQ7ZD8BXq2m_yPW6rmSKi-a-cTXXCdo33GkFLJ3YnDPnqg1peMrcR430/s4080/Firefly%2020240415212627.png" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-vJ2Bvpipl039oYpjY4tdzOk3z48uLCFHRBQUS6wW8CCI-lH0tEEj-jvovBVVIxczXuCO20XhieWHtZ-Qeu9bXKQ7ZD8BXq2m_yPW6rmSKi-a-cTXXCdo33GkFLJ3YnDPnqg1peMrcR430/s16000/Firefly%2020240415212627.png'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjC8Yyp4_4uSUjOEVkmIcWPwSiWmhEoFCsEW878xutQf_IMF1CDcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq_FtHRkaL-8dt4Uamytdf37ARBDXFHcWwYwhpWsGpyEJ_lKPA3GGqU7YwjEXDPmMokaQxA08K9YTnIslGRuXkZrQe8PuNu-28/s4096/Firefly%2020231024021602.png" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjC8Yyp4_4uSUjOEVkmIcWPwSiWmhEoFCsEW878xutQf_IMF1CDcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq_FtHRkaL-8dt4Uamytdf37ARBDXFHcWwYwhpWsGpyEJ_lKPA3GGqU7YwjEXDPmMokaQxA08K9YTnIslGRuXkZrQe8PuNu-28/s16000/Firefly%2020231024021602.png'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj19GyJJOIfq_ztX-Cgdmg8ONZ0kkks_VEjoVYI7iAT6mViH03xJ3HkebNHKUAt2ezD41qZ4hQNczgQptnvHyYfiH8SC8UqnxzOx6z_u4sOQPbwxK2gMLWe_Ih7xG0qosO4qncwAsJbpBxVR__mzxSUPcplvtLrPD7IQkLFQv8uS4IGZr4pJ-VEdUMRFNI/s2048/20230701_234036_0000.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj19GyJJOIfq_ztX-Cgdmg8ONZ0kkks_VEjoVYI7iAT6mViH03xJ3HkebNHKUAt2ezD41qZ4hQNczgQptnvHyYfiH8SC8UqnxzOx6z_u4sOQPbwxK2gMLWe_Ih7xG0qosO4qncwAsJbpBxVR__mzxSUPcplvtLrPD7IQkLFQv8uS4IGZr4pJ-VEdUMRFNI/s16000/20230701_234036_0000.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEige5tKmaC55W1-R380JJ2y3-PXhlJ-qiogkkareF2pyaOowmojd-oxjHphMOS_7PoPLoUo95_E0qtztZA-6VROjWthNFo4YKilQDFA8Hzg0acapGbel5MlSkgmwOlyBbtBxOWcZQUkNShbMSo0rNsFT4nfNsVxA0TTe6vWBdRrDR9Qcw5KnJUAUgWl6Og/s4242/im4.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEige5tKmaC55W1-R380JJ2y3-PXhlJ-qiogkkareF2pyaOowmojd-oxjHphMOS_7PoPLoUo95_E0qtztZA-6VROjWthNFo4YKilQDFA8Hzg0acapGbel5MlSkgmwOlyBbtBxOWcZQUkNShbMSo0rNsFT4nfNsVxA0TTe6vWBdRrDR9Qcw5KnJUAUgWl6Og/s16000/im4.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPCeDBycV5-RC-Xq0XLC-XXysLQYdDcXdIKccsE-mCJN81CP9mWlFXWZBgfqC0TZXapt1aAxyHk6TK_93tpy3R4wog3TOqjrP5rtiUm91uQJMwbZ8ZtgoYzTUKYLkNyQWzJtQmOwEwBmGzH420ESalAyjgPf4_U6UyOsHgz6K0_Dr0HYnpo0ieYkrqZ10/s4242/im5.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPCeDBycV5-RC-Xq0XLC-XXysLQYdDcXdIKccsE-mCJN81CP9mWlFXWZBgfqC0TZXapt1aAxyHk6TK_93tpy3R4wog3TOqjrP5rtiUm91uQJMwbZ8ZtgoYzTUKYLkNyQWzJtQmOwEwBmGzH420ESalAyjgPf4_U6UyOsHgz6K0_Dr0HYnpo0ieYkrqZ10/s16000/im5.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4JtRIGbKqCZ-wQxgV5Pfg_Uic21bF9OPgoawM2oHe2lrnAr1dyxEAGrGHzhbXWUVOIFbYRsTVhSXRVyEl-Zt0O3io-IWzOUHF2NTng-oWAffDCV3oe7HgIbCyU329HtGMLCMTvUOOKzOlWH-5VeSaVKbO9nvHxvsJzhnR-TTL4UobVakYJkJ_Qnoc0EY/s4242/im6.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4JtRIGbKqCZ-wQxgV5Pfg_Uic21bF9OPgoawM2oHe2lrnAr1dyxEAGrGHzhbXWUVOIFbYRsTVhSXRVyEl-Zt0O3io-IWzOUHF2NTng-oWAffDCV3oe7HgIbCyU329HtGMLCMTvUOOKzOlWH-5VeSaVKbO9nvHxvsJzhnR-TTL4UobVakYJkJ_Qnoc0EY/s16000/im6.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7dHuEe97fVDkWLPHUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-RaYAV2ofz19gsTOuoIXshZAbuwL6bA9b2yOoPdaM5SLF1Zur9rjqmJ8_De8xZdM2idgPhKbeKZBiHzUgDROJz-Y42D_Xa5cH37uUQwRdvKN9zqkNYskzCBF6eTM/s4242/lm3.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7dHuEe97fVDkWLPHUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-RaYAV2ofz19gsTOuoIXshZAbuwL6bA9b2yOoPdaM5SLF1Zur9rjqmJ8_De8xZdM2idgPhKbeKZBiHzUgDROJz-Y42D_Xa5cH37uUQwRdvKN9zqkNYskzCBF6eTM/s16000/lm3.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7SvgB806eaSA-NC3qoXtewZrKbHVSwODH7YPvs_gSSj4ywkGmQgW7vR05k6UoUi88Zy-e-ED_A71oH6JpPPDrTKPhoN1vhDXepuq39xthLXhpOAQNmfT5nmp23yvQ6kcqtPMGwXufsNiqFRuBtPNeZDOJ1QcYdKXZKyRh6GsrNE1VKht4ElL4_bLsdPQ/s4242/im2.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7SvgB806eaSA-NC3qoXtewZrKbHVSwODH7YPvs_gSSj4ywkGmQgW7vR05k6UoUi88Zy-e-ED_A71oH6JpPPDrTKPhoN1vhDXepuq39xthLXhpOAQNmfT5nmp23yvQ6kcqtPMGwXufsNiqFRuBtPNeZDOJ1QcYdKXZKyRh6GsrNE1VKht4ElL4_bLsdPQ/s16000/im2.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAek14CDEqQmaT8dYc0V-pN3xzBHIWT-9agi04nAkVekN_VmtVKdF4MbueQ05MPgCCjkRAQ4qtiX7Yx_oBk-6YV4xvLyZdT_Ge-LmgTM9y3syTQGbgaoSTMLoJc9iZiMcYKwoJBHZjlJCTeFQh8lytglm8sDunDs0mL5p39zGTiK4G7p2JeuPRI-yQ224/s4242/im.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAek14CDEqQmaT8dYc0V-pN3xzBHIWT-9agi04nAkVekN_VmtVKdF4MbueQ05MPgCCjkRAQ4qtiX7Yx_oBk-6YV4xvLyZdT_Ge-LmgTM9y3syTQGbgaoSTMLoJc9iZiMcYKwoJBHZjlJCTeFQh8lytglm8sDunDs0mL5p39zGTiK4G7p2JeuPRI-yQ224/s16000/im.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0-A0YAYsjsDHEQqkcSHhdePmpCUBRl2Z7WycPYApiyDjeH2x5GPZrXPkZwn1l6pzTO8wN8BAYh9ph3Kly39covXByAxmTOEdEtMHUYprcOutIQE3RSHFzeRTK1z0HWSAtFqSMYC6JMWOkBr7oeYOeouHAH1RD4LK-4M_DmH3Ngq7CiRdlNcAQ3QQgggs/s6038/20230328204608_IMG_9490-01-01%20(1).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0-A0YAYsjsDHEQqkcSHhdePmpCUBRl2Z7WycPYApiyDjeH2x5GPZrXPkZwn1l6pzTO8wN8BAYh9ph3Kly39covXByAxmTOEdEtMHUYprcOutIQE3RSHFzeRTK1z0HWSAtFqSMYC6JMWOkBr7oeYOeouHAH1RD4LK-4M_DmH3Ngq7CiRdlNcAQ3QQgggs/s16000/20230328204608_IMG_9490-01-01%20(1).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihNiAtExV10-lnoc3z3ujjyiw-pFUMh2ENek7sbamq9MkJGTo-T27Q5AsJ7EyeIjA44idsqHA6QIikhNBuNhlOBY9MgglZExJNgc68ChZ5fvuLul4LCGyXsvMZv2GKsRSm7XRcMh1AY5YptLTprLBIG-u3dg98IoUb3xp88v8AikForTeDL0yqmM9oJeA/s6089/20230328204619_IMG_9492-01-01%20(1).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihNiAtExV10-lnoc3z3ujjyiw-pFUMh2ENek7sbamq9MkJGTo-T27Q5AsJ7EyeIjA44idsqHA6QIikhNBuNhlOBY9MgglZExJNgc68ChZ5fvuLul4LCGyXsvMZv2GKsRSm7XRcMh1AY5YptLTprLBIG-u3dg98IoUb3xp88v8AikForTeDL0yqmM9oJeA/w338-h640/20230328204619_IMG_9492-01-01%20(1).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7KXp1wI2m0rTDg9CKfW-59j0-nXFacNhTpURPb4TqCjrZQIfk6uaNbfWyRJotlN0568qBrdeMRadnNrYcxGgFHRGFtIIFyZGR3F3b9xDGow2yVb8ZekNOzxTIBPYFQ6r4xc8ac8wNnNwOrBcL-w8rcBnBPCTOG0Rywj-EiHm80TVbb93w7SNNHsa07_8/s6044/20230328204643_IMG_9497-01-01%20(1).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7KXp1wI2m0rTDg9CKfW-59j0-nXFacNhTpURPb4TqCjrZQIfk6uaNbfWyRJotlN0568qBrdeMRadnNrYcxGgFHRGFtIIFyZGR3F3b9xDGow2yVb8ZekNOzxTIBPYFQ6r4xc8ac8wNnNwOrBcL-w8rcBnBPCTOG0Rywj-EiHm80TVbb93w7SNNHsa07_8/s16000/20230328204643_IMG_9497-01-01%20(1).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNhuaQYwr1aWhyZP_sqJgnNoW2aTlk44kmQiHBjigELmKdh6jyFqRzsK1QsX6He6luwJYba4U_oL6UI384zAwYj_SXCIlf2Sz0H3tV25MUdhTXQiF7YZLaVO0MNiIge9efhtPjiGukNFEldh8qLsliyZ6u-EVgKpOxpV8Fq1-ieRV5f5Te2HRCA6w0t9E/s6123/20230328204837_IMG_9506-01-01%20(1).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNhuaQYwr1aWhyZP_sqJgnNoW2aTlk44kmQiHBjigELmKdh6jyFqRzsK1QsX6He6luwJYba4U_oL6UI384zAwYj_SXCIlf2Sz0H3tV25MUdhTXQiF7YZLaVO0MNiIge9efhtPjiGukNFEldh8qLsliyZ6u-EVgKpOxpV8Fq1-ieRV5f5Te2HRCA6w0t9E/s16000/20230328204837_IMG_9506-01-01%20(1).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8dcjUZPSE4gy4MSRbrMuL9H5WJ3Jc_L51gYYbGTG5hXLShYWG4tv0aE_TNk-kjyEpaoGkI_79OSJSKp_JAh7pLC4LwW55PhWtVVhXawelhkM6RY7Z_7PAmfkKQ66YRIDkvft9TOz-pxCHm-Rcy9lUFfbJRvz-MDU2SqkvU9veUdrf35-gNU2WtsHElgQ/s5655/20230328204937_IMG_9512-01-01%20(1).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8dcjUZPSE4gy4MSRbrMuL9H5WJ3Jc_L51gYYbGTG5hXLShYWG4tv0aE_TNk-kjyEpaoGkI_79OSJSKp_JAh7pLC4LwW55PhWtVVhXawelhkM6RY7Z_7PAmfkKQ66YRIDkvft9TOz-pxCHm-Rcy9lUFfbJRvz-MDU2SqkvU9veUdrf35-gNU2WtsHElgQ/s16000/20230328204937_IMG_9512-01-01%20(1).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIHkn2ZDIFIZKska4wQtXDSUxF1TsgUhXN0enZZvD072LXriCnN3UcLSIWnOhjaQjyh2qMbTrWOQDdchpz8WFCX47UQGLIoNiVzcJebIYlhh4S58O0MdJy3vjONEZe7O19eWJh8J6Mx9DrGXKEv3ojKmqw8Cv9pscK_3kx5kBAwb_nFub8lrTM3nPpMbmbyFcph3Y/s5880/20230328204919_IMG_9509-01-01%20(1).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIHkn2ZDIFIZKska4wQtXDSUxF1TsgUhXN0enZZvD072LXriCnN3UcLSIWnOhjaQjyh2qMbTrWOQDdchpz8WFCX47UQGLIoNiVzcJebIYlhh4S58O0MdJy3vjONEZe7O19eWJh8J6Mx9DrGXKEv3ojKmqw8Cv9pscK_3kx5kBAwb_nFub8lrTM3nPpMbmbyFcph3Y/s16000/20230328204919_IMG_9509-01-01%20(1).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEib8YcRc_z01zGwkiIxDc6r4xIBhk7q2PPo0cGDZ4f7E4uuytv6ezbD0xB9EFC_kcXDnUNUG1Xurm1eddGMSzLpOWT3eP3E49r5kT18_auTFTS1Jstp-oVh944tvhVtWFxfoxIT4fXDbpKcy2hLJF77HEiVmFA_GMb3MKndl8WQsEBGAl-TMdVhlBSbD4o/s5377/20230328204635_IMG_9495-01-01%20(1).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEib8YcRc_z01zGwkiIxDc6r4xIBhk7q2PPo0cGDZ4f7E4uuytv6ezbD0xB9EFC_kcXDnUNUG1Xurm1eddGMSzLpOWT3eP3E49r5kT18_auTFTS1Jstp-oVh944tvhVtWFxfoxIT4fXDbpKcy2hLJF77HEiVmFA_GMb3MKndl8WQsEBGAl-TMdVhlBSbD4o/s16000/20230328204635_IMG_9495-01-01%20(1).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5iUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw_GGlwna9rIJLP_OFpJFaCfQPaxf8Oh37p8PBNRNI2LhdXY6U4CdeE25cUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-5dMvnSoaiGW4V4LFB_HcfZ9CT-gp-UCbI/s6003/20230328204639_IMG_9496-01-01-01.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5iUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw_GGlwna9rIJLP_OFpJFaCfQPaxf8Oh37p8PBNRNI2LhdXY6U4CdeE25cUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-5dMvnSoaiGW4V4LFB_HcfZ9CT-gp-UCbI/s16000/20230328204639_IMG_9496-01-01-01.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6wy1aUAfs1QkDqMpMnCTNnyEVOrpzK_Pk0u3XR5nn7U8j-B89dV08Q_iJpYTB2gfHqbnftPPyc11sRmDT0BupxhgdY7GDCjatYB5gZ5Ly0FhUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw_VfkPetI1nmrf_bp6864-2ISo6M3pdOY/s6114/20230328204703_IMG_9499-01-01%20(1).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6wy1aUAfs1QkDqMpMnCTNnyEVOrpzK_Pk0u3XR5nn7U8j-B89dV08Q_iJpYTB2gfHqbnftPPyc11sRmDT0BupxhgdY7GDCjatYB5gZ5Ly0FhUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw_VfkPetI1nmrf_bp6864-2ISo6M3pdOY/s16000/20230328204703_IMG_9499-01-01%20(1).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgv7lwhyphenhyphenyXTSNJK5DDxvMLMWIWEiQGgQ_3nD5sqsGzs91VemJjIHOEJW8xno2uzbU4GLgxPCBbWf1fScKvpii_DfEucmYADdoc88VbMoy_yCs-fu9QVI8o0i1DJQYWuzXwMsIs8uMj7rWyq2923GhHliu8JqODX-TUvCYI-jycrjUUSLXfZnGf2NlJZ2QY/s5835/20230328204600_IMG_9488-01-01%20(1).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgv7lwhyphenhyphenyXTSNJK5DDxvMLMWIWEiQGgQ_3nD5sqsGzs91VemJjIHOEJW8xno2uzbU4GLgxPCBbWf1fScKvpii_DfEucmYADdoc88VbMoy_yCs-fu9QVI8o0i1DJQYWuzXwMsIs8uMj7rWyq2923GhHliu8JqODX-TUvCYI-jycrjUUSLXfZnGf2NlJZ2QY/s16000/20230328204600_IMG_9488-01-01%20(1).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHLDEgJnGOavXVA8241zxlHChpt95Ej99WfbB7Vq1dq0ZhOFcYjcTRl2T8kZIY5mwe03V1ytqRMPGO1M0D735EH_bcJy7iyEgAxqufnQWOhC-HN3LDlgEMp1HIsZ2M32q19eWJh8J6Mx9DrGXKEv3ojKmqw8Cv9pscK_03ORvDLRJRMVN-CvglO0X_QJ2EEWj4/s1350/FB_IMG_1680591367807.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHLDEgJnGOavXVA8241zxlHChpt95Ej99WfbB7Vq1dq0ZhOFcYjcTRl2T8kZIY5mwe03V1ytqRMPGO1M0D735EH_bcJy7iyEgAxqufnQWOhC-HN3LDlgEMp1HIsZ2M32q19eWJh8J6Mx9DrGXKEv3ojKmqw8Cv9pscK_03ORvDLRJRMVN-CvglO0X_QJ2EEWj4/s16000/FB_IMG_1680591367807.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRgtYNnXgmAi8pkGRlY23wSsnXPMqz2aUNd-qVTOyhyphenhyphen7fSB69AdU6AZso-pnglw3wvk4WN9sQ-rsQyYPNsM1Es5VJODylz_oeLhFOTPl3m4ed-uFuGWLv6K9fNmQ_V0MzPB5dS9OpmRg8c1tKtcru7CitXDo9IOdsHv5CU0sDc111xohx0i-DcDTjR4g4/s1343/FB_IMG_1680176652213.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRgtYNnXgmAi8pkGRlY23wSsnXPMqz2aUNd-qVTOyhyphenhyphen7fSB69AdU6AZso-pnglw3wvk4WN9sQ-rsQyYPNsM1Es5VJODylz_oeLhFOTPl3m4ed-uFuGWLv6K9fNmQ_V0MzPB5dS9OpmRg8c1tKtcru7CitXDo9IOdsHv5CU0sDc111xohx0i-DcDTjR4g4/s16000/FB_IMG_1680176652213.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKvfkj8iSy1_ILiXBXKaHQSiUPIer1SCwpJiZdNo-_dp73chIT27utabo6N55yn9X2qWgH-b4upKNXOib6hz2r2bt22F111bkj2OPvxkg4RFkr5jrF2zjntxqu4QXSujIOFavVKPGRhKmCJD_sh8cT0OHttnBJ7zeXs0foLUktmT5Zvza_w5dwSAo00vo/s960/FB_IMG_1680183849258.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKvfkj8iSy1_ILiXBXKaHQSiUPIer1SCwpJiZdNo-_dp73chIT27utabo6N55yn9X2qWgH-b4upKNXOib6hz2r2bt22F111bkj2OPvxkg4RFkr5jrF2zjntxqu4QXSujIOFavVKPGRhKmCJD_sh8cT0OHttnBJ7zeXs0foLUktmT5Zvza_w5dwSAo00vo/s16000/FB_IMG_1680183849258.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgK7y374u7IFX0VnzSQDBdD8LS8rE7_8ib52F2UwNy3W1PrlMv9ISKt1Hy6JOnqlHRn0iqIcoELdwgyIwLdu8sAyxpGF6JRA_C0kvIjY7DUJrkXZoBKzA0FxhgsBGZGwyhxD6fTKbHjvqNFEnWhLJRqCVReD1bhHyZ0Rgn3oh6wny-OiH069fFVl4B6kQM/s1623/FB_IMG_1680183852565.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgK7y374u7IFX0VnzSQDBdD8LS8rE7_8ib52F2UwNy3W1PrlMv9ISKt1Hy6JOnqlHRn0iqIcoELdwgyIwLdu8sAyxpGF6JRA_C0kvIjY7DUJrkXZoBKzA0FxhgsBGZGwyhxD6fTKbHjvqNFEnWhLJRqCVReD1bhHyZ0Rgn3oh6wny-OiH069fFVl4B6kQM/s16000/FB_IMG_1680183852565.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhT88g7ZxTTX0ptMgjkciNPeDAD085jXJEOuX-PKsKVPFpxIrEcBe7E8n3VrrOZo9TBj7XTmwa2nCaxWfEkZ2VBwe4LIIL7aVMvp9r0gErj4z-_Orx4ardqg9ZDXWgVxzBqaSf5u3_KZ0BW23lhpv0cOdNuViBgR-WMPj66QuJnJ-2fed-UYkZVmkw03b8/s1623/FB_IMG_1683916407486.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhT88g7ZxTTX0ptMgjkciNPeDAD085jXJEOuX-PKsKVPFpxIrEcBe7E8n3VrrOZo9TBj7XTmwa2nCaxWfEkZ2VBwe4LIIL7aVMvp9r0gErj4z-_Orx4ardqg9ZDXWgVxzBqaSf5u3_KZ0BW23lhpv0cOdNuViBgR-WMPj66QuJnJ-2fed-UYkZVmkw03b8/s16000/FB_IMG_1683916407486.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgD3_mw-jaKHXTqTkSIIRPUZ92d3weygG1jD2JGrkxz8FwBXBSuwv_3Lv53YFVmQa02EBmj7QabKS83Wb7ebuvrxrVEhG1chtpyDqTIROPeTEISqAjslJXr6f6CirEJhuXeMm02rY8s4gJIp9_9jXrniMnfOPamuKnAjLPL5s39fipKHtooxl7OdsfvchA/s1623/FB_IMG_1683916447529.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgD3_mw-jaKHXTqTkSIIRPUZ92d3weygG1jD2JGrkxz8FwBXBSuwv_3Lv53YFVmQa02EBmj7QabKS83Wb7ebuvrxrVEhG1chtpyDqTIROPeTEISqAjslJXr6f6CirEJhuXeMm02rY8s4gJIp9_9jXrniMnfOPamuKnAjLPL5s39fipKHtooxl7OdsfvchA/s16000/FB_IMG_1683916447529.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw_ALK5nmiSAQ_82gVXxNmEJqmnXqqc6B1bG6XL4OyAVmAw8Pu1BgtGHj_co32llGVrbY_Nxw_cwEA24K1Hqqc8tQZmd_To7QOY5vsFfNDAGEWIhxf19eWJh8J6Mx9DrGXKEv3ojKmqw8Cv9pscK/s1623/FB_IMG_1683916514691.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw_ALK5nmiSAQ_82gVXxNmEJqmnXqqc6B1bG6XL4OyAVmAw8Pu1BgtGHj_co32llGVrbY_Nxw_cwEA24K1Hqqc8tQZmd_To7QOY5vsFfNDAGEWIhxf19eWJh8J6Mx9DrGXKEv3ojKmqw8Cv9pscK/s16000/FB_IMG_1683916514691.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXWsrAnJ5NROIHorMhmRG7JcY9mxZITVGiAbZNjS6npV9b66S_y2oc4A2OGD9OwSfzGlTqjuqazsSVXum4CZt7zU3_Vf5zHGmHWngXpmPuYbSm68nJNTQCAMMYT5dSW88hE8AEvYh5PG6DNd9nmqJQJHtWmIP9YA-WVMLq-fHSfPwefGnXmQbOzn4pZe0/s1623/FB_IMG_1680183879382.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXWsrAnJ5NROIHorMhmRG7JcY9mxZITVGiAbZNjS6npV9b66S_y2oc4A2OGD9OwSfzGlTqjuqazsSVXum4CZt7zU3_Vf5zHGmHWngXpmPuYbSm68nJNTQCAMMYT5dSW88hE8AEvYh5PG6DNd9nmqJQJHtWmIP9YA-WVMLq-fHSfPwefGnXmQbOzn4pZe0/s16000/FB_IMG_1680183879382.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLD5EVimW22SOAYOhlUx1ProgitBpoJbLj3NKT_laxOvfJjgZX6hS24EzumARnwgSTOyvHeGNKQPyKq-iwJr7kPBhPbYB6yJpTQzp4Rc-YXsFBd6KkN6XHumQinpGB-xu3w_CWZnJwnrNf39jdlDGX2ZHQ5OTala8suAVIIdRgGLHnMd6NR4yIElss5fs/s1080/FB_IMG_1680176633842.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLD5EVimW22SOAYOhlUx1ProgitBpoJbLj3NKT_laxOvfJjgZX6hS24EzumARnwgSTOyvHeGNKQPyKq-iwJr7kPBhPbYB6yJpTQzp4Rc-YXsFBd6KkN6XHumQinpGB-xu3w_CWZnJwnrNf39jdlDGX2ZHQ5OTala8suAVIIdRgGLHnMd6NR4yIElss5fs/s16000/FB_IMG_1680176633842.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKQ34RwHLDFnS_hmdHqSc-kKo3PzempNSyZsyf8aQunqRbRgupxr2cVQZwZCTODDk5tD0-AbJy0KLvDm8iKyn6UNHSJIX_cT24H7INbF5936BRgpSAwn3nQwKN0nS2GpxuLw9DlzOJW1w84K-sg3Uf_ZEU6UD9Evx_lkxY45vmcpBX967UmBs2cyPOmDY/s1080/FB_IMG_1680176638544.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKQ34RwHLDFnS_hmdHqSc-kKo3PzempNSyZsyf8aQunqRbRgupxr2cVQZwZCTODDk5tD0-AbJy0KLvDm8iKyn6UNHSJIX_cT24H7INbF5936BRgpSAwn3nQwKN0nS2GpxuLw9DlzOJW1w84K-sg3Uf_ZEU6UD9Evx_lkxY45vmcpBX967UmBs2cyPOmDY/s16000/FB_IMG_1680176638544.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJpAYjRej4zjvy9cHUMMEuLdKQQO2QvZOcGS3h9jW4KxIzAG4UM-YdxmIrUtka7eJ7vQW_CjKmfUGDihIZ6eYl4kdDHqyTxjpiIKY6eDqnBSE6jQwAftximfTcJlJZckMwkas5bJoduMePDNUwT74QwcDnUOvxsTaMNPWWvZrlMjDYIj3ezNwmM7RWirE/s4242/Picsart_23-05-05_13-47-46-169.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJpAYjRej4zjvy9cHUMMEuLdKQQO2QvZOcGS3h9jW4KxIzAG4UM-YdxmIrUtka7eJ7vQW_CjKmfUGDihIZ6eYl4kdDHqyTxjpiIKY6eDqnBSE6jQwAftximfTcJlJZckMwkas5bJoduMePDNUwT74QwcDnUOvxsTaMNPWWvZrlMjDYIj3ezNwmM7RWirE/s16000/Picsart_23-05-05_13-47-46-169.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjL40BfN8JFW1A815tW1TzTDBhTxqktiL-1myjyYD-U6QhyphenhyphenINOgTRw0PrD_vP1nFkxaslMBL1yeV_K3WYP9jTeIKFZy2DMmoK3o7QWLG2tyfrcDttSyGLtWudEU1lxuH5XyLRvjxb5pMuZbSd0saBC48tJP-l0iUHlXKG8CX3yyGRqZvjRAfgJcU3BnKE8/s4242/Picsart_23-05-05_13-50-12-303.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjL40BfN8JFW1A815tW1TzTDBhTxqktiL-1myjyYD-U6QhyphenhyphenINOgTRw0PrD_vP1nFkxaslMBL1yeV_K3WYP9jTeIKFZy2DMmoK3o7QWLG2tyfrcDttSyGLtWudEU1lxuH5XyLRvjxb5pMuZbSd0saBC48tJP-l0iUHlXKG8CX3yyGRqZvjRAfgJcU3BnKE8/s16000/Picsart_23-05-05_13-50-12-303.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglAB5lrcS1HazdwX8a-bMz0Qxk9_u8i9wl1jHkDnWIctqaExOfQz7sRxwIX8DFfzZMj3e-dFJOWSJe3qCiedUZ2kL9jhWiFiiQoi5YGH6hwyKWkffafIL5jbOVvZ0z_TWWUnwO6ZTV8GAfe-JkVjqKrFV3-er7c1rQnnCuisR5XA9kDVwizAn0rHVuC-g/s4242/Picsart_23-05-05_13-51-51-325.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglAB5lrcS1HazdwX8a-bMz0Qxk9_u8i9wl1jHkDnWIctqaExOfQz7sRxwIX8DFfzZMj3e-dFJOWSJe3qCiedUZ2kL9jhWiFiiQoi5YGH6hwyKWkffafIL5jbOVvZ0z_TWWUnwO6ZTV8GAfe-JkVjqKrFV3-er7c1rQnnCuisR5XA9kDVwizAn0rHVuC-g/s16000/Picsart_23-05-05_13-51-51-325.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLhgsgnNjAr89oftoUHmsTeyNqRfWgK0FSeAUJncHAxKuQnKnIVt0DB6U3GoDUZLZXekJKJYU2T_At2N6xyqbM5Sl3apu-gjQI5qhkxGCpqVohGtEQc9JP_LbL0JW9MmSpqBn9IHxEADDnqUe9bQwhsksgqjsxjU3xe40KMuxwe8JfxgH83f82p39T2JU/s4242/Picsart_23-05-05_13-52-54-879.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLhgsgnNjAr89oftoUHmsTeyNqRfWgK0FSeAUJncHAxKuQnKnIVt0DB6U3GoDUZLZXekJKJYU2T_At2N6xyqbM5Sl3apu-gjQI5qhkxGCpqVohGtEQc9JP_LbL0JW9MmSpqBn9IHxEADDnqUe9bQwhsksgqjsxjU3xe40KMuxwe8JfxgH83f82p39T2JU/s16000/Picsart_23-05-05_13-52-54-879.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIQI1SydT9naZL8V3IOxHdFKe5sncC1Ca6h2-2BcoPPeGTCACpDjw6NiG6b55tis0Po6vekI2NoW6FYo_GgSMVrCOLcxphlLsZ53N7m40ji50wMCuZg614D2X40wUkNIP-6zTjxCsMKoWJwjt4QZCTu1DULRH7yf3OJy2V6x3afoLOrYT83XUzdBDAu5g/s5721/20230328200750_IMG_9410-01.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIQI1SydT9naZL8V3IOxHdFKe5sncC1Ca6h2-2BcoPPeGTCACpDjw6NiG6b55tis0Po6vekI2NoW6FYo_GgSMVrCOLcxphlLsZ53N7m40ji50wMCuZg614D2X40wUkNIP-6zTjxCsMKoWJwjt4QZCTu1DULRH7yf3OJy2V6x3afoLOrYT83XUzdBDAu5g/s16000/20230328200750_IMG_9410-01.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPzkz0qXCN4zjyFMNWICMmdobAxB0_q890UzftUC6yGjclkcnJnsR6jIrQNI-f_NukSgsUeHySNCcYkBXZP2ZfXEEuVhipZc_IAFAMp1FdhITMIP-dfsoad-BJawfyO7tGOt7EQihBCZBvVqea6GWpJu-ls0MD5GYZCmH96JGBfwyohAtgtwe3KoQr0lI/s6123/20230328200740_IMG_9409-01.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPzkz0qXCN4zjyFMNWICMmdobAxB0_q890UzftUC6yGjclkcnJnsR6jIrQNI-f_NukSgsUeHySNCcYkBXZP2ZfXEEuVhipZc_IAFAMp1FdhITMIP-dfsoad-BJawfyO7tGOt7EQihBCZBvVqea6GWpJu-ls0MD5GYZCmH96JGBfwyohAtgtwe3KoQr0lI/s16000/20230328200740_IMG_9409-01.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQkX_TAxH4qGHY2LEVekMosxFqXby7ahO-wOpmAd43xG5r_2pYix93vxOwi1KUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-qYapiqQUTEsX3H4JACtbLDfqwyxw1Nq6IquR4eKj6LE9NZWdZHe2zDhVE4Qs5zg6fzJ_HZBMHbrAmG8/s5935/20230328200755_IMG_9411-01.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQkX_TAxH4qGHY2LEVekMosxFqXby7ahO-wOpmAd43xG5r_2pYix93vxOwi1KUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-qYapiqQUTEsX3H4JACtbLDfqwyxw1Nq6IquR4eKj6LE9NZWdZHe2zDhVE4Qs5zg6fzJ_HZBMHbrAmG8/s16000/20230328200755_IMG_9411-01.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1vJftj3QBP6oOm0BrE4-R-r94sSLUBd_RfQBZXjEz-0PF596FsBoXACtqm25MZc4HLZ0Bf18MZPbga9v4nW89SQEpcjWiWfNhxWm165aISMAxHIJNK3TFfSw-iOLuv1jL7ncD8nVsbrZa3rYD8MtIJoz8MdZBQZZgatbYcV7yVl-hb20A5ZRRpr3yJEI/s5985/20230328200801_IMG_9412-01.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1vJftj3QBP6oOm0BrE4-R-r94sSLUBd_RfQBZXjEz-0PF596FsBoXACtqm25MZc4HLZ0Bf18MZPbga9v4nW89SQEpcjWiWfNhxWm165aISMAxHIJNK3TFfSw-iOLuv1jL7ncD8nVsbrZa3rYD8MtIJoz8MdZBQZZgatbYcV7yVl-hb20A5ZRRpr3yJEI/s16000/20230328200801_IMG_9412-01.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzBNrwkWN7pdkvqSeShluWznypHcBAeT8dGpmpPEN2_DMSNcLoXLpMeTXv55_sbhPEO0Vwjh5J09oV0CWNzS5g9P0a4xpaBhNVFUDO_EQN61mekoTqi1E1Uk2B3BVUvCXzuXnxdz60J1Hf7-LiReeAi8T2MVcXB0tWk6RvpC2fMgBgSPB88MYTxbvqYBQ/s5956/20230328200824_IMG_9415-01.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzBNrwkWN7pdkvqSeShluWznypHcBAeT8dGpmpPEN2_DMSNcLoXLpMeTXv55_sbhPEO0Vwjh5J09oV0CWNzS5g9P0a4xpaBhNVFUDO_EQN61mekoTqi1E1Uk2B3BVUvCXzuXnxdz60J1Hf7-LiReeAi8T2MVcXB0tWk6RvpC2fMgBgSPB88MYTxbvqYBQ/s16000/20230328200824_IMG_9415-01.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjh7nZ7fncdglpQIvMl1zJD6bBZnvsZuftXrYqFT_qDetIrWeaVTnilx6-5bmZovMycPtrVfIsFa4pmztbCSVTLxeLuWgbXkvv9GlT9LJPdXxsdXtaA3L7GLYMWc8uA1aSeFVZMVSBuGKgPB0NZnkWGOhpgbz3faRH63z1bvduQwZN_n1wQEdU5jqPSYfQ/s5569/20230328200830_IMG_9416-01.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjh7nZ7fncdglpQIvMl1zJD6bBZnvsZuftXrYqFT_qDetIrWeaVTnilx6-5bmZovMycPtrVfIsFa4pmztbCSVTLxeLuWgbXkvv9GlT9LJPdXxsdXtaA3L7GLYMWc8uA1aSeFVZMVSBuGKgPB0NZnkWGOhpgbz3faRH63z1bvduQwZN_n1wQEdU5jqPSYfQ/s16000/20230328200830_IMG_9416-01.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9WZP35p7FH9IcR-W_NEMyeaGjtyKQ5FziLJHeExqgrVCszQvediTHpNm0vLxpB_iClfWBzP4qL1oMydQc1jyGDkTLuDB1BxsNGFMIsU97wsWdVzIn2NtfUiR40U3Jf9nHIznvrCN7m4LeUzciTEbKKrQ_oKCQJdP2gvmH34pD7LDgR-AHuQyE1aCQyg8/s5859/20230328200909_IMG_9420-01.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9WZP35p7FH9IcR-W_NEMyeaGjtyKQ5FziLJHeExqgrVCszQvediTHpNm0vLxpB_iClfWBzP4qL1oMydQc1jyGDkTLuDB1BxsNGFMIsU97wsWdVzIn2NtfUiR40U3Jf9nHIznvrCN7m4LeUzciTEbKKrQ_oKCQJdP2gvmH34pD7LDgR-AHuQyE1aCQyg8/s16000/20230328200909_IMG_9420-01.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigrysCIgoh-vXgNs9LtHLRusYzghFts9-ks1WmyEgvJJKspkHBkoRH-j3Zxy8vTb5L6aLpTfCX8IF3KTlZ6nwBOELBg0kFpXyhmCs-DlaBnWAyBE5SOfNKBT7-QtyHYmKa_0cG8vuGfZ53Vo3zpN6uBw0MuwiuVZxNYCrKQQ9_j6I6UNLdGFU43F2sqNU/s5884/20230328200904_IMG_9419-01.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigrysCIgoh-vXgNs9LtHLRusYzghFts9-ks1WmyEgvJJKspkHBkoRH-j3Zxy8vTb5L6aLpTfCX8IF3KTlZ6nwBOELBg0kFpXyhmCs-DlaBnWAyBE5SOfNKBT7-QtyHYmKa_0cG8vuGfZ53Vo3zpN6uBw0MuwiuVZxNYCrKQQ9_j6I6UNLdGFU43F2sqNU/s16000/20230328200904_IMG_9419-01.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDB3ytoT3ZUt0tjvJfupcBnTnkFViYUjJ_mWcVluqoVGdkjiBMHdnktkQ-Kbdk4hQ_YLllhC0viEvUJw22Sra-BikNISlJqy0CWNO1Yxv0AqGR0gwb1pjIYtQOvV87FNnlMHJ9za3v4Xt1XbdtlaHTPB7O5ewNAU3D_OIP2dYHQH0pzvMysEUBwprGCM0/s5734/20230328200900_IMG_9418-01.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDB3ytoT3ZUt0tjvJfupcBnTnkFViYUjJ_mWcVluqoVGdkjiBMHdnktkQ-Kbdk4hQ_YLllhC0viEvUJw22Sra-BikNISlJqy0CWNO1Yxv0AqGR0gwb1pjIYtQOvV87FNnlMHJ9za3v4Xt1XbdtlaHTPB7O5ewNAU3D_OIP2dYHQH0pzvMysEUBwprGCM0/s16000/20230328200900_IMG_9418-01.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhl94yeeKu3HH3KfrVLtILY1wU3_3u3dMqA-yJepGTtEtPJev1q2fK2jq_LQYbwFovfyfvNm7Ac20-DCh4zB2b3s0wb1oQ7ZQmhx-t2GL2Fo6EsPqpvsipAp_ahyE7IrcDlXJ4Pz23XAmYClykk5J_kI5y9P35nZnbssTRyRUjJ6uhKJp4Ipbo-iPx9MuA/s5665/20230328200846_IMG_9417-01.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhl94yeeKu3HH3KfrVLtILY1wU3_3u3dMqA-yJepGTtEtPJev1q2fK2jq_LQYbwFovfyfvNm7Ac20-DCh4zB2b3s0wb1oQ7ZQmhx-t2GL2Fo6EsPqpvsipAp_ahyE7IrcDlXJ4Pz23XAmYClykk5J_kI5y9P35nZnbssTRyRUjJ6uhKJp4Ipbo-iPx9MuA/s16000/20230328200846_IMG_9417-01.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbJgBMFEJ5ZWkZ-QyFEPGssOxeEg9Q4G7Jyl9g6KsZ7aqGHI-xmavswfypQa7RPExqnC7ffeYQc3pnLPE0oZA4SeGOCSmv74U5Fp8C3rqYCaGgaWREEHxyOt1YaU3523cR_VYdMHs_jGipSxNBUjxVvV_YJv5XrjLJl5Qvg8kn4W-uno5Eqc3lfov_n1U/s5909/20230328200921_IMG_9422-01.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbJgBMFEJ5ZWkZ-QyFEPGssOxeEg9Q4G7Jyl9g6KsZ7aqGHI-xmavswfypQa7RPExqnC7ffeYQc3pnLPE0oZA4SeGOCSmv74U5Fp8C3rqYCaGgaWREEHxyOt1YaU3523cR_VYdMHs_jGipSxNBUjxVvV_YJv5XrjLJl5Qvg8kn4W-uno5Eqc3lfov_n1U/s16000/20230328200921_IMG_9422-01.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw_WbtHNKyBwoVxqNgM1z4hPXayaFbVhiAnsX6B0FmmedvjIa4Upq0RXFDnB7zcv-3kzHBBlnbwnGjP7weUJOSRQotLMbuHGH3aVb4ISfazMyXkITG6Er0m0fUMw6JYwC6exeK85bRKsk/s5723/20230315163952_IMG_0189-01%20(1).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw_WbtHNKyBwoVxqNgM1z4hPXayaFbVhiAnsX6B0FmmedvjIa4Upq0RXFDnB7zcv-3kzHBBlnbwnGjP7weUJOSRQotLMbuHGH3aVb4ISfazMyXkITG6Er0m0fUMw6JYwC6exeK85bRKsk/s16000/20230315163952_IMG_0189-01%20(1).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpDeXvmfYrf_nXkP9IlkuIrxUduqp546im7OvcqG3z_zJrrW3SYv8aumsgXdJb85bcHEvTQ3PyxW0Zr4t5oxb3EzIUgr_JsMs8vLcECdh16I4ydqYQ5ITA21Y_-Q1pP_sIJNqhbTdGWEKQzd6BIpzdK3FamxCJgn2VKB8_M36hUMugTdtOgrTXjJApYug/s6120/20230315163710_IMG_0174-01%20(1).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpDeXvmfYrf_nXkP9IlkuIrxUduqp546im7OvcqG3z_zJrrW3SYv8aumsgXdJb85bcHEvTQ3PyxW0Zr4t5oxb3EzIUgr_JsMs8vLcECdh16I4ydqYQ5ITA21Y_-Q1pP_sIJNqhbTdGWEKQzd6BIpzdK3FamxCJgn2VKB8_M36hUMugTdtOgrTXjJApYug/s16000/20230315163710_IMG_0174-01%20(1).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjeUNPU3YA_t8vtsbdGtD6DgGSligOQTwdzvQLrelI38nNDeb1RC0LLWAUUMT_LHCBHkIoMdDt2UekNSyBX7jRPJp3hz2geEbKmc8SXMrlmBi-OS_QVx7zWZkWpq7AV2rZNLkCS1hxIf620Y8lQIairgOnRA_wk0PVUp71g-ncSq8Kpx9h_Zpq5_XAgFcE/s6123/20230315163706_IMG_0173-01%20(1).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjeUNPU3YA_t8vtsbdGtD6DgGSligOQTwdzvQLrelI38nNDeb1RC0LLWAUUMT_LHCBHkIoMdDt2UekNSyBX7jRPJp3hz2geEbKmc8SXMrlmBi-OS_QVx7zWZkWpq7AV2rZNLkCS1hxIf620Y8lQIairgOnRA_wk0PVUp71g-ncSq8Kpx9h_Zpq5_XAgFcE/s16000/20230315163706_IMG_0173-01%20(1).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaNuD-9gIeNuHXbI2LcZbQYv9SxezuloMKNM0U6f27cb3pGx5DzWOuoI6Wg5v66OAR21NprN7WeR3ODYrIp2HAjOC-Zp2Cs0Mx-YWKoWYXOtdjzF1qQOYYd9iX7Z-TVZUHJhE-BVsSelkqof0QU1mNPGqdjL854SPBmkfz6slqmRtq-IPEnuGVUwhZFNU/s6044/20230315163650_IMG_0169-01%20(1).jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaNuD-9gIeNuHXbI2LcZbQYv9SxezuloMKNM0U6f27cb3pGx5DzWOuoI6Wg5v66OAR21NprN7WeR3ODYrIp2HAjOC-Zp2Cs0Mx-YWKoWYXOtdjzF1qQOYYd9iX7Z-TVZUHJhE-BVsSelkqof0QU1mNPGqdjL854SPBmkfz6slqmRtq-IPEnuGVUwhZFNU/s16000/20230315163650_IMG_0169-01%20(1).jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2SLmHyv25La2nGXMPzlalgigzoChQmurqTlxhDLov9eYwI4vFYxVimFDIsApRKBEoLnbLyDi_T5E-l6H5cdYyhoq3NZAUTxzvZHssD7KBBxj8cw0kV2MsWczVmqu2hfRm3PkXfCFu-woqKGTc3uhnDXCzTmKWi3xYSDlb9017-wWmVLuG_gtp9vb4LVE/s1920/DSC_0080_00008.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2SLmHyv25La2nGXMPzlalgigzoChQmurqTlxhDLov9eYwI4vFYxVimFDIsApRKBEoLnbLyDi_T5E-l6H5cdYyhoq3NZAUTxzvZHssD7KBBxj8cw0kV2MsWczVmqu2hfRm3PkXfCFu-woqKGTc3uhnDXCzTmKWi3xYSDlb9017-wWmVLuG_gtp9vb4LVE/s16000/DSC_0080_00008.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguWgLMqCfpfCg80gPACXi4u_VF5b6YghcBVKrH7R84glB6BtdAspxOWRXPjRyg2HZm87mxYTeIq-VJxqlm3WBfNRSzuyCK-i4_6X0rWbB4HGnv1IBZ1u4BDnBs548B8dqZYeawZ7PkmVyNmi5DcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq/s1920/DSC_0084_00009.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguWgLMqCfpfCg80gPACXi4u_VF5b6YghcBVKrH7R84glB6BtdAspxOWRXPjRyg2HZm87mxYTeIq-VJxqlm3WBfNRSzuyCK-i4_6X0rWbB4HGnv1IBZ1u4BDnBs548B8dqZYeawZ7PkmVyNmi5DcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq/s16000/DSC_0084_00009.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjm-HoItH8iBMCfmEodvQ7xvvbuWSdEWncXnQeYs8jO1WV1JonOIvkmSJ-NbOJAZrnXJvOkFrjdTbtW0NkDNJbNrgVF6RbfB2BZIoyOp4bhVKd6xBl7QsIuZlscrU1Jiz50i1ml9A5Ea_bmp69tDI5PfBqUWOC5rwnKbjND0X_h5XpnGbqtyNGsan5EyJk/s6240/IMG_23.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjm-HoItH8iBMCfmEodvQ7xvvbuWSdEWncXnQeYs8jO1WV1JonOIvkmSJ-NbOJAZrnXJvOkFrjdTbtW0NkDNJbNrgVF6RbfB2BZIoyOp4bhVKd6xBl7QsIuZlscrU1Jiz50i1ml9A5Ea_bmp69tDI5PfBqUWOC5rwnKbjND0X_h5XpnGbqtyNGsan5EyJk/s16000/IMG_23.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg51oQefeyKiyKWbYH1_4uno2BbJQDCWYcBjv2kbYYXsMEdmpqQJovgw2wVhoZXei3NJJFgDcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq_wc8EKRy0Fex1HiiDxiHe7_Msptm8ppifjzKW0eVLk0niwCDTHajOeVFLBLzHeL9j-LkAiaiw3U/s6240/IMG_22.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg51oQefeyKiyKWbYH1_4uno2BbJQDCWYcBjv2kbYYXsMEdmpqQJovgw2wVhoZXei3NJJFgDcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq_wc8EKRy0Fex1HiiDxiHe7_Msptm8ppifjzKW0eVLk0niwCDTHajOeVFLBLzHeL9j-LkAiaiw3U/w640-h426/IMG_22.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKL6I1rBWOUCAPnjVFxTLCbt4rPUmQR2YY_zJH1M6w8v5R9w-H6guq1TNNc0JTiRALj7j1oSzJ4w_VOoZYfiTaNIBKNXWmg3-17ODltHv8fZ_R-XNfICYUfbzkGPclvHgzIzTfvoJ1_sYRaW7fkxxdyyJj8zLYO2Di2B7A7Puwouczvjp5YUgT74pSCl0/s2084/IS_IMG_16.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKL6I1rBWOUCAPnjVFxTLCbt4rPUmQR2YY_zJH1M6w8v5R9w-H6guq1TNNc0JTiRALj7j1oSzJ4w_VOoZYfiTaNIBKNXWmg3-17ODltHv8fZ_R-XNfICYUfbzkGPclvHgzIzTfvoJ1_sYRaW7fkxxdyyJj8zLYO2Di2B7A7Puwouczvjp5YUgT74pSCl0/w512-h640/IS_IMG_16.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwiGdul3eikxM6WXKQ6J1ALmSuoohmYP1_PKy-A9FXOsEq6oFekUx5B3wMlmAFTlYA_InC9R_3MVkvC_jw-QPDY1AoSsKbkcnoE87JT6YQU3_kjEql3BFNGKQZW9FcwxHmBGNfctsCdiSiqT8qZk-TL_ch2LejmL3-ykjWJSiusF2zh7N-ptTKzB4vUZI/s1920/DSC_0060_00005.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwiGdul3eikxM6WXKQ6J1ALmSuoohmYP1_PKy-A9FXOsEq6oFekUx5B3wMlmAFTlYA_InC9R_3MVkvC_jw-QPDY1AoSsKbkcnoE87JT6YQU3_kjEql3BFNGKQZW9FcwxHmBGNfctsCdiSiqT8qZk-TL_ch2LejmL3-ykjWJSiusF2zh7N-ptTKzB4vUZI/w640-h426/DSC_0060_00005.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvOuIeBuab2u_PL4PDp8mCIsO11KE0yFfgyD2DmHeE0vRPakb0yIk8v8gjfrUoocfsZ0JypecnWDlFpIAExfu7s6SbMnifVs2JS_qVME8yhLQDnJhyphenhyphenBCsQBnpHppNRcr5kJpWVF0X5A7RFgapwyTP2RYJdWQv23i6lGbkbeB61fYP-78dkY0WRbgAIAuE/s1920/DSC_0056_00004.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvOuIeBuab2u_PL4PDp8mCIsO11KE0yFfgyD2DmHeE0vRPakb0yIk8v8gjfrUoocfsZ0JypecnWDlFpIAExfu7s6SbMnifVs2JS_qVME8yhLQDnJhyphenhyphenBCsQBnpHppNRcr5kJpWVF0X5A7RFgapwyTP2RYJdWQv23i6lGbkbeB61fYP-78dkY0WRbgAIAuE/w640-h426/DSC_0056_00004.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPFImMSP3o_-NAqKot19eWJh8J6Mx9DrGXKEv3ojKmqw8Cv9pscK_eE9V-l2NuO2Na2B7GgKDvgbFqtb2rha1aHm5T5cyPC1HzhIrEwFpXVEc07Zglitd7JBilF9rDImWIarlFR68XfIJBgoYkhVDHwCUOnTzIJLQqxNSOslQS_xtd-Uc_lHnPUTIktN0/s6240/IMG_14.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPFImMSP3o_-NAqKot19eWJh8J6Mx9DrGXKEv3ojKmqw8Cv9pscK_eE9V-l2NuO2Na2B7GgKDvgbFqtb2rha1aHm5T5cyPC1HzhIrEwFpXVEc07Zglitd7JBilF9rDImWIarlFR68XfIJBgoYkhVDHwCUOnTzIJLQqxNSOslQS_xtd-Uc_lHnPUTIktN0/w640-h426/IMG_14.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLJDX6PP4HJVocKrAUoFosiBWDcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq_QARJianNbaoi5_e0U0YTNx5A9AmWgajcwlENKcF0uwQs1PKPQ1sdoYgSqhQw6Vs7w5v8_nFOltUMKwVECHUtb95N_KJgH-cwwQy-aNW-dyAcYsFcoLgh3A0/s2084/IS_IMG_12.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLJDX6PP4HJVocKrAUoFosiBWDcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq_QARJianNbaoi5_e0U0YTNx5A9AmWgajcwlENKcF0uwQs1PKPQ1sdoYgSqhQw6Vs7w5v8_nFOltUMKwVECHUtb95N_KJgH-cwwQy-aNW-dyAcYsFcoLgh3A0/s16000/IS_IMG_12.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSblfANYDweMkgDUmzjyaY1FvRfldXhja6rSTyB6enOD-cIInHuM1fN_YakrNOIlfFSWANJdl0v0u0PG-ocu_ob3w6nu1YK7JrdEZjAiFQ_lmefdQjfPqHchwldncL2mIISf9pLZuHq0Qhmpug-263ztr2kaQYVOahLCq5Rcf4a4YsjkHxmhgSCWDSAh8/s1920/DSC_0046_00001.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSblfANYDweMkgDUmzjyaY1FvRfldXhja6rSTyB6enOD-cIInHuM1fN_YakrNOIlfFSWANJdl0v0u0PG-ocu_ob3w6nu1YK7JrdEZjAiFQ_lmefdQjfPqHchwldncL2mIISf9pLZuHq0Qhmpug-263ztr2kaQYVOahLCq5Rcf4a4YsjkHxmhgSCWDSAh8/s16000/DSC_0046_00001.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgcsQsg10Ksq_1zD536CcLG5wxNhLuf73AQA_1EbmslMROKBSm4FxpbStgtaClkt4uu3Yav3T93s4pwcxJXaIPOwxkL0KRWkZbaM6Kab-Z070vu5YpC-D0Aoh6RDcTf0cPTokr4FAKUY_d6UE3A3tSHFQhiA024yfd4E-tmG4MAr2-wHNOHR0L83oDmDpA/s1920/DSC_0048_00003.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgcsQsg10Ksq_1zD536CcLG5wxNhLuf73AQA_1EbmslMROKBSm4FxpbStgtaClkt4uu3Yav3T93s4pwcxJXaIPOwxkL0KRWkZbaM6Kab-Z070vu5YpC-D0Aoh6RDcTf0cPTokr4FAKUY_d6UE3A3tSHFQhiA024yfd4E-tmG4MAr2-wHNOHR0L83oDmDpA/s16000/DSC_0048_00003.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh-aIH7LRLqAzr9A7q7Gs-kgyTTjzTF5QIp2b3IE3utP8SsYK3svXSD_5sZ3wiE3mCl7adMe53rgQdLC50A5-uoHBxn4Q4AXq_c0DeQBItPoLkQej5ivF31rtVuikT68mFn8Cn4SVw2Es9AhA1rYchR2TgCB4Dnzyszs1gqtpDmrVHO6SOrI4HMK-NzI1g/s3935/IMG_12.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh-aIH7LRLqAzr9A7q7Gs-kgyTTjzTF5QIp2b3IE3utP8SsYK3svXSD_5sZ3wiE3mCl7adMe53rgQdLC50A5-uoHBxn4Q4AXq_c0DeQBItPoLkQej5ivF31rtVuikT68mFn8Cn4SVw2Es9AhA1rYchR2TgCB4Dnzyszs1gqtpDmrVHO6SOrI4HMK-NzI1g/s16000/IMG_12.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-tn2RJ8SkaHxHPGqoxc7xCH76Vxcd4Q3To4kzq8lNbaQ1R5KN-Dr93AC2GEegjKv_EsDnTodPkoL8OmMaUs0U3pMm-r0Zx6pociGkX1m5G2j3OtFkvGAd1CZho3_k2lNayEHPYe3GqYVOY/s1920/DSC_0047_00002.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-tn2RJ8SkaHxHPGqoxc7xCH76Vxcd4Q3To4kzq8lNbaQ1R5KN-Dr93AC2GEegjKv_EsDnTodPkoL8OmMaUs0U3pMm-r0Zx6pociGkX1m5G2j3OtFkvGAd1CZho3_k2lNayEHPYe3GqYVOY/s16000/DSC_0047_00002.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgk-p2b2BQGgyMmAjOfA_JIxCnYQGuXRBdu59xLrpOE8bJH0sND7X4UaXEqF8FoBly3wBC_Da2FcS0WIKo8EQHsronOgmI8K1MQ64XOx-FZJG1yUIa9EHlmlqoHjWPt1FezYR60Vj41jbgaDFMx6Omz2o_yE4XgU-GLMA_Zg_xS6EeEiM8XVW6Xx7nwG08/s2084/IS_IMG_10.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgk-p2b2BQGgyMmAjOfA_JIxCnYQGuXRBdu59xLrpOE8bJH0sND7X4UaXEqF8FoBly3wBC_Da2FcS0WIKo8EQHsronOgmI8K1MQ64XOx-FZJG1yUIa9EHlmlqoHjWPt1FezYR60Vj41jbgaDFMx6Omz2o_yE4XgU-GLMA_Zg_xS6EeEiM8XVW6Xx7nwG08/s16000/IS_IMG_10.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWOWyb2D_xLjDSaenGhz7YyYhuqNbbjrdtDSBeGV2DcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq-qdwAo4o-P6Zh4zbSoMwRCGAR1rRt1QwjiFlapJcTNAZQDm4PanzkbW3ioURcjI-j7RDHRff-hPRN2DUiybTBU-6Z7cIGc_dYB8678fs/s2084/IS_IMG_06.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWOWyb2D_xLjDSaenGhz7YyYhuqNbbjrdtDSBeGV2DcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq-qdwAo4o-P6Zh4zbSoMwRCGAR1rRt1QwjiFlapJcTNAZQDm4PanzkbW3ioURcjI-j7RDHRff-hPRN2DUiybTBU-6Z7cIGc_dYB8678fs/s16000/IS_IMG_06.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihkuYKj5i5WfXyOhdHBL03FJZCkZwd2L041qnIHO-WyaJ-kkZlq19eWJh8J6Mx9DrGXKEv3ojKmqw8Cv9pscK_ZjiZnjfwxm9r00VeHZJbCPAi-AFc7dcf6DFvxfVMeTLCizAsf0eN3PfpNlc4_SDYs6pQnLkypPvPs3aUM7kAW7cM6jdphCu9ixWx9FJKOtM/s2084/IS_IMG_04.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihkuYKj5i5WfXyOhdHBL03FJZCkZwd2L041qnIHO-WyaJ-kkZlq19eWJh8J6Mx9DrGXKEv3ojKmqw8Cv9pscK_ZjiZnjfwxm9r00VeHZJbCPAi-AFc7dcf6DFvxfVMeTLCizAsf0eN3PfpNlc4_SDYs6pQnLkypPvPs3aUM7kAW7cM6jdphCu9ixWx9FJKOtM/s16000/IS_IMG_04.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAVxIRwVu5m_0_5VpGWQZd9Y_771i0tySDbWoujh4JRmc1N5O7qD6re_IHaMII1-77EGvcrv-TNRBvPy010kfftvP2QPOHkE8MXEGafj8R0VhNZ_mzKfn7DBYnA0sizB7eVmBAzQG76q58tKdKcIAo3zV8Hctms3v9gMFWo9j3kX-8uMa_HvgCZZocC9k/s2084/IS_IMG_01.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAVxIRwVu5m_0_5VpGWQZd9Y_771i0tySDbWoujh4JRmc1N5O7qD6re_IHaMII1-77EGvcrv-TNRBvPy010kfftvP2QPOHkE8MXEGafj8R0VhNZ_mzKfn7DBYnA0sizB7eVmBAzQG76q58tKdKcIAo3zV8Hctms3v9gMFWo9j3kX-8uMa_HvgCZZocC9k/s16000/IS_IMG_01.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjanJv1Ek-2LrEKJGsMSs0pMlUNEZ_FZvfCucxFLjAIOZlayucujiZO6VxBrySO0s-cgTrfgUHKtZQae5p4-9ds8n81TIQoEJb6NAdzHXG-QfH8KjtS9lX3qBJydiSXHRCeDxqV3Sz57rWl7P3U8Z6FF2ZoKHD78476-xixTAD9Iww2zsRgK1y_bNIUI5Q/s5871/20221114144911_IMG_1276.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjanJv1Ek-2LrEKJGsMSs0pMlUNEZ_FZvfCucxFLjAIOZlayucujiZO6VxBrySO0s-cgTrfgUHKtZQae5p4-9ds8n81TIQoEJb6NAdzHXG-QfH8KjtS9lX3qBJydiSXHRCeDxqV3Sz57rWl7P3U8Z6FF2ZoKHD78476-xixTAD9Iww2zsRgK1y_bNIUI5Q/s16000/20221114144911_IMG_1276.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsEHrO2uIaY2r30Im6JZHOzRjlHSQ0Rw6wJQxS2jjZZPdBMyf9bPzBp4DcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq-S4aeuNcz_wXJwpCo39QorAzhyphenhyphenNsES63pfcJCaefQ60X-TsKDDD4p5b7qa4eWdvVvfXXfAltKMOaA2aMMqkbjj0Gs/s6240/20221114151337_IMG_1283.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsEHrO2uIaY2r30Im6JZHOzRjlHSQ0Rw6wJQxS2jjZZPdBMyf9bPzBp4DcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq-S4aeuNcz_wXJwpCo39QorAzhyphenhyphenNsES63pfcJCaefQ60X-TsKDDD4p5b7qa4eWdvVvfXXfAltKMOaA2aMMqkbjj0Gs/s16000/20221114151337_IMG_1283.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiq0vX_rnChtE7UOgJsD0Af2TnCW0B3nuqdiSuZFz7SH3NdO5v_BRCBt6SmES9JdScByk5DD9IJXk2Ps7Lkjv8rYIT2tDaqqJ8QUKxmxpOUY7r2qs7iwLXnOmhpUhVpp3XykLoyc9IRcjEqI27DcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq/s6240/20221114151406_IMG_1286.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiq0vX_rnChtE7UOgJsD0Af2TnCW0B3nuqdiSuZFz7SH3NdO5v_BRCBt6SmES9JdScByk5DD9IJXk2Ps7Lkjv8rYIT2tDaqqJ8QUKxmxpOUY7r2qs7iwLXnOmhpUhVpp3XykLoyc9IRcjEqI27DcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq/s16000/20221114151406_IMG_1286.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhO1NrSQDmNnQQCYNbeiUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw_19eWJh8J6Mx9DrGXKEv3ojKmqw8Cv9pscK_r2E15jid-W9-OC_PK5ifwCrIG4eVdaqp8yw2KlYnrWyy_75wjz4PFlOHNY5ZWgrREi4GGcP0HiRAXnwSavqb2nuk16A-IY/s6240/20221114151407_IMG_1287.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhO1NrSQDmNnQQCYNbeiUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw_19eWJh8J6Mx9DrGXKEv3ojKmqw8Cv9pscK_r2E15jid-W9-OC_PK5ifwCrIG4eVdaqp8yw2KlYnrWyy_75wjz4PFlOHNY5ZWgrREi4GGcP0HiRAXnwSavqb2nuk16A-IY/s16000/20221114151407_IMG_1287.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgL6sLg6KNOvZiNtUlPQKgdsm4xFAPdCIrqGEeDM35RK6aq7ekzDc8b_Vk74urfGLagnC_qIOAOM1akjYoyRboVlQIPcHo2spONfUOzclHp3jwc7oXS9xv3GbR_rOvZplhmmy1_n44hSai4gffylag8tSmK8ddWVtYAYpYiE27OBLgXvlFUUsTGb9sIQG4/s6240/20221114151427_IMG_1288.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgL6sLg6KNOvZiNtUlPQKgdsm4xFAPdCIrqGEeDM35RK6aq7ekzDc8b_Vk74urfGLagnC_qIOAOM1akjYoyRboVlQIPcHo2spONfUOzclHp3jwc7oXS9xv3GbR_rOvZplhmmy1_n44hSai4gffylag8tSmK8ddWVtYAYpYiE27OBLgXvlFUUsTGb9sIQG4/s16000/20221114151427_IMG_1288.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvkh_QsASrKlVtz670uNcBEhjIaoihbxbLKJIfWp77DcKY79KKuvJLCy8DPdSlbYVKF0byySBKs3MRF_g0tpbKtZNSCaKXQfR7A0UdN5ECpKfPUko-ffdb88NvSpPmLPCAQbXAOjbL3o6R5MvXWXHGHne1Aho1jWYDVgOJwg4ZETpZivZQAhqdf_58kjU/s6240/20221114151605_IMG_1296.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvkh_QsASrKlVtz670uNcBEhjIaoihbxbLKJIfWp77DcKY79KKuvJLCy8DPdSlbYVKF0byySBKs3MRF_g0tpbKtZNSCaKXQfR7A0UdN5ECpKfPUko-ffdb88NvSpPmLPCAQbXAOjbL3o6R5MvXWXHGHne1Aho1jWYDVgOJwg4ZETpZivZQAhqdf_58kjU/s16000/20221114151605_IMG_1296.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqZum3UqgnWOSezZ3AGYiLgs0vPF_MvWPRIfuzdlhVhOYyjdcSK-0p3B1el9rvghXJEB0waMmN3Mn_Y_14qnnclFZ3pG6BwmQcJLuVVngz3QzhiB0LB1yoxmuvrBz0Iz9n-Exuowbpo5Zif1ZJIS30ae6oFrLQJYRj_G4KasRYRtP8MjVeZh_HNfmLx84/s6240/20221114151617_IMG_1297.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqZum3UqgnWOSezZ3AGYiLgs0vPF_MvWPRIfuzdlhVhOYyjdcSK-0p3B1el9rvghXJEB0waMmN3Mn_Y_14qnnclFZ3pG6BwmQcJLuVVngz3QzhiB0LB1yoxmuvrBz0Iz9n-Exuowbpo5Zif1ZJIS30ae6oFrLQJYRj_G4KasRYRtP8MjVeZh_HNfmLx84/s16000/20221114151617_IMG_1297.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3SUfDH32c-U0N5bF0gqIBjynHSyemTmtdEBSp9RM-TSraSdUIx92GFLP5osgN3CFbIBltnhWl41KS-MW2f2kWL5pjysnpOnQHRe8c4DIhzQvKt-aQn0GgXybeGVjZsw11EKQboJ9rtbP0J-zbbll0kFc0KVfS8UyTzCYv8I2_gbdxma2Lo-yUTW8xwgw/s6240/20221114151623_IMG_1298.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3SUfDH32c-U0N5bF0gqIBjynHSyemTmtdEBSp9RM-TSraSdUIx92GFLP5osgN3CFbIBltnhWl41KS-MW2f2kWL5pjysnpOnQHRe8c4DIhzQvKt-aQn0GgXybeGVjZsw11EKQboJ9rtbP0J-zbbll0kFc0KVfS8UyTzCYv8I2_gbdxma2Lo-yUTW8xwgw/s16000/20221114151623_IMG_1298.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMb8YfS8z4dgnW7A-m0CzTxgC6ayOlxgu2mgZnoRz84Mp4NgA5X_73Pw99THx4Z6EZWx2RrcLpokW0aRXFMnjS2JXzdSlPgzmVzjelMpO6zWtrExeW1Y7DOOl8uw6yvZicREWXBNIDUIGthScYRw0kr0thozOwQYG6uC3VOGRKZvD9aRQJaOjZKMx5ozE/s6240/20221114151632_IMG_1299.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMb8YfS8z4dgnW7A-m0CzTxgC6ayOlxgu2mgZnoRz84Mp4NgA5X_73Pw99THx4Z6EZWx2RrcLpokW0aRXFMnjS2JXzdSlPgzmVzjelMpO6zWtrExeW1Y7DOOl8uw6yvZicREWXBNIDUIGthScYRw0kr0thozOwQYG6uC3VOGRKZvD9aRQJaOjZKMx5ozE/s16000/20221114151632_IMG_1299.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVvLsZ3-fyPFlNSQ3TadKSZJtoKc7DBLg5x3jCNldGa1uFYkvEsu1Df-fYma8JK8PBnrJQu2axmNhyphenhyphenHOavTGVK8baGQYfLMwGBIDxVABksriXKHu04cGEbDMGytbWkTruKsgb3g20ovaps2NPe-ZzwFh4lnD148zOBEnpcF3de9-p96DSyB3z6X3p6UfE/s6240/20221114151649_IMG_1300.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVvLsZ3-fyPFlNSQ3TadKSZJtoKc7DBLg5x3jCNldGa1uFYkvEsu1Df-fYma8JK8PBnrJQu2axmNhyphenhyphenHOavTGVK8baGQYfLMwGBIDxVABksriXKHu04cGEbDMGytbWkTruKsgb3g20ovaps2NPe-ZzwFh4lnD148zOBEnpcF3de9-p96DSyB3z6X3p6UfE/s16000/20221114151649_IMG_1300.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg47BYke1lxvEGC9t5OPwtxY_AHh5UuO_Y2hcMAq1-R8iKL-yLtAibMV5xIAmSTxtm9QvoyKPhBVauDgMRudY0of97MddMr1FtwkuoitCpG_xA0z2lhK4Hzdrb76FYj91tj7ElN0rXTDLWFuyuSpxibQnZbQoZ2np3WOWAnCju1lTI_ZgL9uANtOXZBdUs/s6240/20221114151724_IMG_1303.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg47BYke1lxvEGC9t5OPwtxY_AHh5UuO_Y2hcMAq1-R8iKL-yLtAibMV5xIAmSTxtm9QvoyKPhBVauDgMRudY0of97MddMr1FtwkuoitCpG_xA0z2lhK4Hzdrb76FYj91tj7ElN0rXTDLWFuyuSpxibQnZbQoZ2np3WOWAnCju1lTI_ZgL9uANtOXZBdUs/s16000/20221114151724_IMG_1303.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVtu-VNsp917V16OhoKZFroeyFzvvmo7i1aIvDnuOd7LK4N2Q8PWzgkj8F54cmo3b1YjaKBpqJjEcNm5B3r08RBl7_6jdGzlmQQ7DP3Rg94DQJsQ1l94pkWngIOazLPXCbsBAWF4FEtcrmA3Kz0HLqBOP16ucJwU6yV6nlFu3xRzpZV2MKjiuhybH1h00/s6240/20221114151738_IMG_1304.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVtu-VNsp917V16OhoKZFroeyFzvvmo7i1aIvDnuOd7LK4N2Q8PWzgkj8F54cmo3b1YjaKBpqJjEcNm5B3r08RBl7_6jdGzlmQQ7DP3Rg94DQJsQ1l94pkWngIOazLPXCbsBAWF4FEtcrmA3Kz0HLqBOP16ucJwU6yV6nlFu3xRzpZV2MKjiuhybH1h00/s16000/20221114151738_IMG_1304.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsVNIpslAPKHiTO5IFQj16LpHQtR3v4yxGPXInLa7jXxjn7uOU5nnn_w-v87PYIybNLHyXbTwv4vU_zb5HmYaQGvxLLItoyysCr8iWA7GiBt3kmYrXQXTmyWrKz3avabr-zNZgEmjZE5nb-Npdi2HbBySJb2JSMW5hN-sONnvCatVKkTCHQnODnFatNJk/s6240/20221114151825_IMG_1306.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsVNIpslAPKHiTO5IFQj16LpHQtR3v4yxGPXInLa7jXxjn7uOU5nnn_w-v87PYIybNLHyXbTwv4vU_zb5HmYaQGvxLLItoyysCr8iWA7GiBt3kmYrXQXTmyWrKz3avabr-zNZgEmjZE5nb-Npdi2HbBySJb2JSMW5hN-sONnvCatVKkTCHQnODnFatNJk/s16000/20221114151825_IMG_1306.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgI8oV0MwQ6BXRwsczzubOibL5IEHC4FkAeRq0ZeJOiZ1A5b2X44fCqx8WVOV-kIGo1eE48P-0iAaEhmWGoesu7WPK4jfQjpOTE7dNZ_I_-RbqztkxWlOaoFR8-_alAQ25e1c-6Vf0-zpF__B-QYTLRst_xRGEH_VNSasB0Bw-8r4aICQF5jEJOfHL5fPs/s6240/20221114151835_IMG_1307.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgI8oV0MwQ6BXRwsczzubOibL5IEHC4FkAeRq0ZeJOiZ1A5b2X44fCqx8WVOV-kIGo1eE48P-0iAaEhmWGoesu7WPK4jfQjpOTE7dNZ_I_-RbqztkxWlOaoFR8-_alAQ25e1c-6Vf0-zpF__B-QYTLRst_xRGEH_VNSasB0Bw-8r4aICQF5jEJOfHL5fPs/s16000/20221114151835_IMG_1307.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgyoQFIi0OVwpnM6Pv5K-obKJ-M3p6kw885vzp_8ouBUA7vEKDjp6lBWF5jAB6BIepKpXVTZxjc3gXJkh8Ol7j7npN0ctXdGyORAzakMX-LAXibnaUaU3BZd3ENg18VVpZW5XOYsJPFF3FSH7Zoa_4k3x8hKFUfaesWAr1M9jWMaT9Zfmvob-p2Jo7ke8/s1546/FB_IMG_1683916582886.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgyoQFIi0OVwpnM6Pv5K-obKJ-M3p6kw885vzp_8ouBUA7vEKDjp6lBWF5jAB6BIepKpXVTZxjc3gXJkh8Ol7j7npN0ctXdGyORAzakMX-LAXibnaUaU3BZd3ENg18VVpZW5XOYsJPFF3FSH7Zoa_4k3x8hKFUfaesWAr1M9jWMaT9Zfmvob-p2Jo7ke8/s16000/FB_IMG_1683916582886.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIdHBYa19eWJh8J6Mx9DrGXKEv3ojKmqw8Cv9pscK_jzjK1ynj2v7Yi08sGTvjQ_2PoNdIFLz3-6wS7dhX39izeb55xakKz5_OPQBYpGX-pE8zbQQPMgypeSaLYGHDmS0JrAXYvCIqYPKkdoOmH8tJ6eyywDEr9dR3ARJflrN6kw5eEAnSLEJIqvj3-eM/s1620/FB_IMG_1683916568888.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIdHBYa19eWJh8J6Mx9DrGXKEv3ojKmqw8Cv9pscK_jzjK1ynj2v7Yi08sGTvjQ_2PoNdIFLz3-6wS7dhX39izeb55xakKz5_OPQBYpGX-pE8zbQQPMgypeSaLYGHDmS0JrAXYvCIqYPKkdoOmH8tJ6eyywDEr9dR3ARJflrN6kw5eEAnSLEJIqvj3-eM/s16000/FB_IMG_1683916568888.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhxos3GVzIIgSHwlX2pKNKOpcI2vPuk7Z_gxxh7KlZ3UBfwNlgQyn23I9uGT11JTRIF-iSH0SaKvMgv6g2-AtqRlphNiUP7ytqRmZDUq66NZ9ePJwOVYW8gl5DwTJzNg9lFOG3CxYo3USL7FsSdbgEGkN5buq2ZWaTdoC59e06_cx61OhHMJz9LNCz6RU/s1620/FB_IMG_1683916571102.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhxos3GVzIIgSHwlX2pKNKOpcI2vPuk7Z_gxxh7KlZ3UBfwNlgQyn23I9uGT11JTRIF-iSH0SaKvMgv6g2-AtqRlphNiUP7ytqRmZDUq66NZ9ePJwOVYW8gl5DwTJzNg9lFOG3CxYo3USL7FsSdbgEGkN5buq2ZWaTdoC59e06_cx61OhHMJz9LNCz6RU/s16000/FB_IMG_1683916571102.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2lP2J3l3X0avMPqjfv_mtXchheHuPnVGmDosKHrvcmcn65ivEJqtzdKW4z3w6J9lCxG2k8KoZPx97W2Ys2OsByGc4rtYG1NmCSepvmlTXPHlmCUO8NW1cOiHwUJVbQ1QtvIBO8bPoR1CUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw/s1671/FB_IMG_1683916574253.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2lP2J3l3X0avMPqjfv_mtXchheHuPnVGmDosKHrvcmcn65ivEJqtzdKW4z3w6J9lCxG2k8KoZPx97W2Ys2OsByGc4rtYG1NmCSepvmlTXPHlmCUO8NW1cOiHwUJVbQ1QtvIBO8bPoR1CUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw/s16000/FB_IMG_1683916574253.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiShOnB6sh5QxvhZPFu1faLiU5NtZYjN0o-cazPm-SaVCiSwhdf2SoHZ18UydUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-9nFQfX66zlYQGQloi5rdpsStXnz1q8KDrcnCGQzPpJx7gLK8pPdVs6jm76Zx9avGvFIAWAADPvvO7Uxc/s1616/FB_IMG_1683916577594.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiShOnB6sh5QxvhZPFu1faLiU5NtZYjN0o-cazPm-SaVCiSwhdf2SoHZ18UydUQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw-9nFQfX66zlYQGQloi5rdpsStXnz1q8KDrcnCGQzPpJx7gLK8pPdVs6jm76Zx9avGvFIAWAADPvvO7Uxc/s16000/FB_IMG_1683916577594.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjehivF5v1OCXfqHFLt0H03Xgs5ozZ6xkrZgcA6UKKn5YZBvgerO23fS50TiYnXdxmpc2QpGE7YYwiojVsxHvq3S8h2NyIPL_kt9Xdkp1lE1gQhVm_rRhgC7h2DHMVZV1py3LbvSvZUWuGbXcLDcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq/s1620/FB_IMG_1683916580418.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjehivF5v1OCXfqHFLt0H03Xgs5ozZ6xkrZgcA6UKKn5YZBvgerO23fS50TiYnXdxmpc2QpGE7YYwiojVsxHvq3S8h2NyIPL_kt9Xdkp1lE1gQhVm_rRhgC7h2DHMVZV1py3LbvSvZUWuGbXcLDcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq/s16000/FB_IMG_1683916580418.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoKOjG9cw9R9QQOrMnmO6cWOWh6J5f1f3zuIxIRRBNOzJky4v9rXpvb_m2UFp9VeKxyMP4IB3dKAGaJ95XhnT8JuVDQEGSey1yw0J7F_YiGG8LCo_lsqOOotxE8rXIZoc2AccoDAHHT7739A02oiFrnQOrqYWzY2yrnYqazdBq0qEJb8kwiQHCyo-Ge2A/s1668/FB_IMG_1683916585268.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoKOjG9cw9R9QQOrMnmO6cWOWh6J5f1f3zuIxIRRBNOzJky4v9rXpvb_m2UFp9VeKxyMP4IB3dKAGaJ95XhnT8JuVDQEGSey1yw0J7F_YiGG8LCo_lsqOOotxE8rXIZoc2AccoDAHHT7739A02oiFrnQOrqYWzY2yrnYqazdBq0qEJb8kwiQHCyo-Ge2A/s16000/FB_IMG_1683916585268.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEeD3-RpYrzZhvwC-H1stterFOFKS7zRYFwgRw7CklB5aHZ9xqCxzzshjA7YHwI-vJeZB-I2ofgo3PQeyyzSqWV5og-P9YHrN4SWVtaN0sqJ7N55h2ykd_ok5CXm2D9CQ1yIm96SI-U4hQXFY2T3W6cenfAnIZuxO0F7gyPL0yQeGLclVlbuIjEEu6rEA/s6048/20221114134809_IMG_1201.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEeD3-RpYrzZhvwC-H1stterFOFKS7zRYFwgRw7CklB5aHZ9xqCxzzshjA7YHwI-vJeZB-I2ofgo3PQeyyzSqWV5og-P9YHrN4SWVtaN0sqJ7N55h2ykd_ok5CXm2D9CQ1yIm96SI-U4hQXFY2T3W6cenfAnIZuxO0F7gyPL0yQeGLclVlbuIjEEu6rEA/s16000/20221114134809_IMG_1201.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibAHakbvyon3Huzw5vUhcusYlwG6gZwGmhGCHmP0r73LQ5xZwPptw0a3n5Gd-twxo5eUL7OMhFzI938NmhVWeRcXtzASz3b_0zg8HjZFd7Lsj2mKUluvh5JNfmio3R28Ag8v-wLGUoJnvMXKzODcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq/s6073/20221114134741_IMG_1199.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibAHakbvyon3Huzw5vUhcusYlwG6gZwGmhGCHmP0r73LQ5xZwPptw0a3n5Gd-twxo5eUL7OMhFzI938NmhVWeRcXtzASz3b_0zg8HjZFd7Lsj2mKUluvh5JNfmio3R28Ag8v-wLGUoJnvMXKzODcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq/s16000/20221114134741_IMG_1199.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgt7yI0fdnHh_WHHvr933KjTsBgZ4Dnqjq2r4bdQ15pTQtgjPcAslH3BiQH3-DysuMw-XiiTCML5tULGdMiGLnF6DJLdOtfJRhdhPymV_aR8lvgIU8oX6ST1eewd1BRYv7Lc2L7sMez0Rbp9LLWwuX7WZKuEueKTAi2JFnXqbcF3LcdflyaIY3Nxw-dcQ0/s6104/20221114134636_IMG_1192.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgt7yI0fdnHh_WHHvr933KjTsBgZ4Dnqjq2r4bdQ15pTQtgjPcAslH3BiQH3-DysuMw-XiiTCML5tULGdMiGLnF6DJLdOtfJRhdhPymV_aR8lvgIU8oX6ST1eewd1BRYv7Lc2L7sMez0Rbp9LLWwuX7WZKuEueKTAi2JFnXqbcF3LcdflyaIY3Nxw-dcQ0/s16000/20221114134636_IMG_1192.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFZKbctF5n3u8hJ-UrP0TejJoOFlM46OV69x0ds1BYmy4j17fH_uBTXBwcnj9ldo2YuGGOsdV5lTleVwT8XAXJ0LqtO8WOVytOQMh4rnMfeCE0ZUQONuXaCOZoxEcdlU7krsEMooggcKaYQM_C3arfU0LiFpfFukSEadGgVJiQSMrXq51JMRXJSFF_fKs/s6046/20221114134656_IMG_1195.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFZKbctF5n3u8hJ-UrP0TejJoOFlM46OV69x0ds1BYmy4j17fH_uBTXBwcnj9ldo2YuGGOsdV5lTleVwT8XAXJ0LqtO8WOVytOQMh4rnMfeCE0ZUQONuXaCOZoxEcdlU7krsEMooggcKaYQM_C3arfU0LiFpfFukSEadGgVJiQSMrXq51JMRXJSFF_fKs/s16000/20221114134656_IMG_1195.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfEm5UEvsex4rXlnC45qraBSJUAWxBmOqIlZp42IdRUfbL3aZlBIcTrBKka3G0IfV3sqNLqIGCi68qv7iekXIYVuPqug4o_2MgAlKUu-Ik3lea5YZd_bIofir9rQzQ4I0avbPYSZSBZBrwKrrQW0-nrcbz5pH1GmXJG9mjVWPaPkfc8-P1Fuauemt-EBM/s6240/20221114134727_IMG_1197.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfEm5UEvsex4rXlnC45qraBSJUAWxBmOqIlZp42IdRUfbL3aZlBIcTrBKka3G0IfV3sqNLqIGCi68qv7iekXIYVuPqug4o_2MgAlKUu-Ik3lea5YZd_bIofir9rQzQ4I0avbPYSZSBZBrwKrrQW0-nrcbz5pH1GmXJG9mjVWPaPkfc8-P1Fuauemt-EBM/s16000/20221114134727_IMG_1197.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrmS1EbNuz8pAeHwGKJFGSrzdf_bRrk6EnGtKambecUK_iNczIUVT01ux8T-nzb1Zz4Hh3a6yrZ1ERo44ckz3oA_2_Vu5kyKtb83emkIR8S6G4cKTx-e_yho3fG7ntdLzOY-_hRv5L9rj5vyECxF0JstTYZIi2b311mqbQ0Pj8vo0Qkqy53i3mQwIzCYk/s6050/20221114134736_IMG_1198.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrmS1EbNuz8pAeHwGKJFGSrzdf_bRrk6EnGtKambecUK_iNczIUVT01ux8T-nzb1Zz4Hh3a6yrZ1ERo44ckz3oA_2_Vu5kyKtb83emkIR8S6G4cKTx-e_yho3fG7ntdLzOY-_hRv5L9rj5vyECxF0JstTYZIi2b311mqbQ0Pj8vo0Qkqy53i3mQwIzCYk/s16000/20221114134736_IMG_1198.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVS_6mjowxZMyLq-WM-JJ2D3j01hyphenhyphenkYwkRTXGsr1AeYyOjT_WvzXmrbR1PbyasasqeqOzP_8LGYeaFoGzxrI0kDQ26p1tznFAMomn08i1NHmEeijcfIkKU_oQWZWxnYwTAY7Tcx2yuaSPDKq8DcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq/s5920/20221114134246_IMG_1188.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVS_6mjowxZMyLq-WM-JJ2D3j01hyphenhyphenkYwkRTXGsr1AeYyOjT_WvzXmrbR1PbyasasqeqOzP_8LGYeaFoGzxrI0kDQ26p1tznFAMomn08i1NHmEeijcfIkKU_oQWZWxnYwTAY7Tcx2yuaSPDKq8DcJHrrHSgvFpsYxqb6g97uaQTd2kE31rPUeDZTeDsjVq/s16000/20221114134246_IMG_1188.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcD7U_N4lAkFQ4pdxKV7UN-zTTmsDXxsB7mfOVaJVW0m1Hc55f_PlkADrUjmus1rJHqn4L3tyPTgp8ohelb5PM57mBXCPqGtT_7b1_-4rn0khFLzorgmmJYmmLkj-QuPfTkno664OoxE2esmyTaJZ4BkHj4Nya1NZvvMiaQYpqluEUXenIuk0NwPN5RKk/s5114/20221114133950_IMG_1183.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcD7U_N4lAkFQ4pdxKV7UN-zTTmsDXxsB7mfOVaJVW0m1Hc55f_PlkADrUjmus1rJHqn4L3tyPTgp8ohelb5PM57mBXCPqGtT_7b1_-4rn0khFLzorgmmJYmmLkj-QuPfTkno664OoxE2esmyTaJZ4BkHj4Nya1NZvvMiaQYpqluEUXenIuk0NwPN5RKk/s16000/20221114133950_IMG_1183.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhV-J2Xj1B-dbChzsR2ALi1fdVT2Op1VS_tAiXT6e6jsKZfWt5cdIC3FIqtIKay7-nwl7BRLc-2VWzc1A9VWGVMsnpCKyqTdIl2NjRgZMOpF6XeJF8LODo3QNSiVq5giP-a5wapXSqu0mJSqmXdlri5HNJ5qO4vYPkWgLYLcRCdyp8cF0KWEPEwhFADZGI/s5975/20221114133409_IMG_1179.jpg" target="_blank" class="card fade-in">
-                <div class="card-img" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhV-J2Xj1B-dbChzsR2ALi1fdVT2Op1VS_tAiXT6e6jsKZfWt5cdIC3FIqtIKay7-nwl7BRLc-2VWzc1A9VWGVMsnpCKyqTdIl2NjRgZMOpF6XeJF8LODo3QNSiVq5giP-a5wapXSqu0mJSqmXdlri5HNJ5qO4vYPkWgLYLcRCdyp8cF0KWEPEwhFADZGI/s16000/20221114133409_IMG_1179.jpg'); height: 360px; background-position: top center;"></div>
-            </a>
-        </div>
-    </section>
+onAuthStateChanged(auth, user => {
+  isAdmin = !!user;
+  document.body.classList.toggle("admin-mode", isAdmin);
+  document.getElementById("adminBar").classList.toggle("active", isAdmin);
+  render();
+});
 
+window.tryLogin = async () => {
+  const email = document.getElementById("adminEmail").value.trim();
+  const pass = document.getElementById("adminPassword").value;
+  if (!email || !pass) return alert("Email & Password required");
+  try {
+    await signInWithEmailAndPassword(auth, email, pass);
+    closeModal("loginModal");
+  } catch (e) { alert(e.message); }
+};
 
-<!-- ========== CONTACT ========== -->
-    <section id="contact">
-        <div class="section-header fade-in" style="text-align:center;">
-            <h2 style="padding-left:0;">Get In Touch</h2>
-            <p style="margin:0 auto;">Available for modeling, acting & brand collaborations</p>
-        </div>
+window.logout = async () => { try { await signOut(auth); } catch(e){} };
 
-        <div class="contact-box fade-in">
-            <p><strong>Phone / WhatsApp:</strong> <a href="tel:+918981839702">+91 8981839702</a></p>
-            <p><strong>Email:</strong> <a href="mailto:imranayaat02@gmail.com">imranayaat02@gmail.com</a></p>
-            <p><strong>Location:</strong> Santoshpur, South Kolkata, West Bengal</p>
+async function load() {
+  try {
+    const q = query(collection(db, "portfolio"), orderBy("createdAt", "desc"));
+    const snap = await getDocs(q);
+    data = [];
+    snap.forEach(d => data.push({ id: d.id, ...d.data() }));
+    
+    // Agar Firebase empty hai to default works dikhao
+    if (data.length === 0) {
+      data = [...defaultWorks];
+    }
+    render();
+  } catch (e) {
+    // Firebase error hone pe bhi default works dikhao
+    console.error(e);
+    data = [...defaultWorks];
+    render();
+  }
+}
 
-            <div class="social-links">
-                <a href="https://instagram.com/imran_mallick_official" target="_blank">Instagram</a>
-                <a href="https://facebook.com/imran.mallick.official" target="_blank">Facebook</a>
-                <a href="https://www.threads.net/@imran_mallick_official" target="_blank">Threads</a>
-                <a href="https://www.imdb.com/name/nm15959834" target="_blank">IMDb</a>
-            </div>
-        </div>
-    </section>
+window.saveItem = async () => {
+  if (!isAdmin) return alert("Login first");
+  const category = document.getElementById("itemCategory").value;
+  const title = document.getElementById("itemTitle").value.trim();
+  const year = document.getElementById("itemYear").value.trim();
+  const image = document.getElementById("itemImage").value.trim();
+  const link = document.getElementById("itemLink").value.trim();
+  const badge = document.getElementById("itemBadge").value.trim();
+  if (!title || !image) return alert("Title & Image required");
+  try {
+    await addDoc(collection(db, "portfolio"), { category, title, year, image, link, badge, createdAt: new Date() });
+    closeModal("addModal");
+    await load();
+  } catch (e) { alert(e.message); }
+};
 
-    <!-- ========== FOOTER ========== -->
-    <footer>
-        <div class="footer-content">
-            <div class="visitor-counter">
-                <span>👁️ Total Visitors:</span>
-                <span class="count" id="visitorCount">—</span>
-            </div>
+window.deleteItem = async (id) => {
+  if (!isAdmin || !confirm("Delete?")) return;
+  try {
+    await deleteDoc(doc(db, "portfolio", id));
+    await load();
+  } catch (e) { alert(e.message); }
+};
 
-            <div class="footer-links">
-                &copy; 2026 Imran Hossain Mallick. All Rights Reserved. | 
-                <a href="https://www.imdb.com/name/nm15959834" target="_blank">IMDb Verified Profile</a>
-            </div>
+function render() {
+  renderCategory("filmsGrid", ["short-film", "film", "ott"]);
+  renderCategory("musicGrid", ["music"]);
+  renderCategory("photosGrid", ["image"]);
+  renderCategory("pressGrid", ["press"]);
+  document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+}
 
-            <div class="made-by">Made with ❤️ by Bengal Solution Point</div>
-        </div>
-    </footer>
+function renderCategory(gridId, categories) {
+  const grid = document.getElementById(gridId);
+  if (!grid) return;
+  const items = data.filter(item => categories.includes(item.category));
+  if (!items.length) {
+    grid.innerHTML = `<div class="empty">${isAdmin ? 'Click "+ Add Item" to add' : 'No items yet'}</div>`;
+    return;
+  }
+  grid.innerHTML = items.map(item => {
+    const has = item.link && item.link.trim();
+    const tag = has ? "a" : "div";
+    const href = has ? `href="${item.link}" target="_blank"` : "";
+    return `<${tag} ${href} class="work-card reveal">
+      <button class="del-btn" onclick="event.preventDefault();event.stopPropagation();deleteItem('${item.id}')">×</button>
+      <div class="work-img" style="background-image:url('${item.image}')"></div>
+      <div class="work-body">
+        <h3>${item.title}</h3>
+        <p>${item.year || ''}</p>
+        ${item.badge ? `<span class="badge">${item.badge}</span>` : ''}
+      </div>
+    </${tag}>`;
+  }).join("");
+}
 
-    <!-- ========== SCRIPTS ========== -->
-    <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const mainNav = document.getElementById('mainNav');
+window.openAddModal = () => {
+  ["itemTitle","itemYear","itemImage","itemLink","itemBadge"].forEach(id => document.getElementById(id).value = "");
+  document.getElementById("addModal").classList.add("active");
+};
+window.openModal = id => document.getElementById(id).classList.add("active");
+window.closeModal = id => document.getElementById(id).classList.remove("active");
 
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            mainNav.classList.toggle('active');
-        });
+document.getElementById("adminBtn").addEventListener("click", e => {
+  e.preventDefault();
+  isAdmin ? openAddModal() : openModal("loginModal");
+});
 
-        // Close menu when clicking a link
-        document.querySelectorAll('#mainNav a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                mainNav.classList.remove('active');
-            });
-        });
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("nav");
+menuBtn.addEventListener("click", () => {
+  menuBtn.classList.toggle("active");
+  nav.classList.toggle("open");
+});
+document.querySelectorAll("#nav a").forEach(a => a.addEventListener("click", () => nav.classList.remove("open")));
 
-        // Fade-in on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -40px 0px'
-        });
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); });
+}, { threshold: 0.1 });
 
-        fadeElements.forEach(el => observer.observe(el));
+// Visitor counter starts from 7307
+fetch("https://api.countapi.xyz/hit/imran-mallick-portfolio-v2/visits")
+  .then(r => r.json())
+  .then(d => {
+    const base = 7307;
+    const total = base + (d.value || 0);
+    document.getElementById("visitorCount").textContent = total.toLocaleString();
+  })
+  .catch(() => {
+    document.getElementById("visitorCount").textContent = "7,307";
+  });
 
-        // Visitor Counter (using free countapi.xyz)
-        fetch('https://api.countapi.xyz/hit/imran-hossain-mallick-portfolio/visits')
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById('visitorCount').textContent = data.value.toLocaleString();
-            })
-            .catch(() => {
-                document.getElementById('visitorCount').textContent = '—';
-            });
-    </script>
+load();
+</script>
 </body>
 </html>
