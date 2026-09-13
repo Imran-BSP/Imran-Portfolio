@@ -553,7 +553,94 @@ document.getElementById('lightbox').onclick = e => { if (e.target.id === 'lightb
 document.onkeydown = e => { if (e.key === 'Escape') closeLb(); };
 
 document.getElementById('menuBtn').onclick = () => document.getElementById('nav').classList.toggle('open');
-document.querySelectorAll('#nav a').forEach(a => a.onclick = () => document.getElementById('nav').classList.remove('open'));
+document.querySelectorAll('#nav a').forEach(a => {
+  a.addEventListener('click', function(e) {
+    if (this.id === 'adminBtn') {
+      e.preventDefault();
+      if (isAdmin) {
+        document.getElementById('addModal').style.display = 'flex';
+      } else {
+        document.getElementById('adminModal').style.display = 'flex';
+      }
+    }
+    document.getElementById('nav').classList.remove('open');
+  });
+});
+
+// ===== ADMIN LOGIN =====
+const ADMIN_PASS = 'imraan2026';
+let isAdmin = localStorage.getItem('imraan_admin') === '1';
+
+function updateAdminUI() {
+  const bar = document.getElementById('adminBar');
+  if (bar) bar.style.display = isAdmin ? 'flex' : 'none';
+}
+updateAdminUI();
+
+window.tryAdminLogin = function() {
+  const p = document.getElementById('adminPass').value;
+  if (p === ADMIN_PASS) {
+    isAdmin = true;
+    localStorage.setItem('imraan_admin', '1');
+    document.getElementById('adminModal').style.display = 'none';
+    document.getElementById('adminPass').value = '';
+    updateAdminUI();
+    alert('Login successful!');
+  } else {
+    alert('Wrong password');
+  }
+};
+
+window.adminLogout = function() {
+  isAdmin = false;
+  localStorage.removeItem('imraan_admin');
+  updateAdminUI();
+};
+
+window.saveProject = function() {
+  const cat = document.getElementById('addCat').value;
+  const title = document.getElementById('addTitle').value.trim();
+  const year = document.getElementById('addYear').value.trim();
+  const img = document.getElementById('addImg').value.trim();
+  const link = document.getElementById('addLink').value.trim();
+  if (!title || !img) { alert('Title and Image URL required'); return; }
+  const projects = JSON.parse(localStorage.getItem('imraan_projects') || '[]');
+  projects.unshift({ cat, title, year, img, link, id: Date.now() });
+  localStorage.setItem('imraan_projects', JSON.stringify(projects));
+  document.getElementById('addModal').style.display = 'none';
+  location.reload();
+};
+
+// Load custom projects
+(function() {
+  const projects = JSON.parse(localStorage.getItem('imraan_projects') || '[]');
+  projects.forEach(p => {
+    if (p.cat === 'photos') {
+      const d = document.createElement('div');
+      d.className = 'photo-card';
+      d.style.backgroundImage = 'url(\'' + p.img + '\')';
+      d.onclick = function() { openLb(p.img); };
+      const pg = document.getElementById('photoGrid');
+      if (pg) pg.insertBefore(d, pg.firstChild);
+    } else if (p.cat === 'films') {
+      const grid = document.querySelector('#films .grid');
+      if (!grid) return;
+      const el = document.createElement(p.link ? 'a' : 'div');
+      if (p.link) { el.href = p.link; el.target = '_blank'; }
+      el.className = 'card';
+      el.innerHTML = '<div class="card-img" style="background-image:url(\'' + p.img + '\')"></div><div class="card-body"><h3>' + p.title + '</h3><p>' + (p.year||'') + '</p><span class="badge">New</span></div>';
+      grid.insertBefore(el, grid.firstChild);
+    } else if (p.cat === 'music') {
+      const grid = document.querySelector('#music .grid');
+      if (!grid) return;
+      const el = document.createElement(p.link ? 'a' : 'div');
+      if (p.link) { el.href = p.link; el.target = '_blank'; }
+      el.className = 'card';
+      el.innerHTML = '<div class="card-img" style="background-image:url(\'' + p.img + '\')"></div><div class="card-body"><h3>' + p.title + '</h3><p>' + (p.year||'') + '</p></div>';
+      grid.insertBefore(el, grid.firstChild);
+    }
+  });
+})();
 
 fetch('https://api.countapi.xyz/hit/imran-mallick-portfolio-v2/visits')
   .then(r => r.json())
