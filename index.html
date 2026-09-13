@@ -553,39 +553,44 @@ document.getElementById('lightbox').onclick = e => { if (e.target.id === 'lightb
 document.onkeydown = e => { if (e.key === 'Escape') closeLb(); };
 
 document.getElementById('menuBtn').onclick = () => document.getElementById('nav').classList.toggle('open');
-document.querySelectorAll('#nav a').forEach(a => {
-  a.addEventListener('click', function(e) {
-    if (this.id === 'adminBtn') {
-      e.preventDefault();
-      if (isAdmin) {
-        document.getElementById('addModal').style.display = 'flex';
-      } else {
-        document.getElementById('adminModal').style.display = 'flex';
-      }
-    }
+document.querySelectorAll('#nav a:not(#adminBtn)').forEach(a => {
+  a.addEventListener('click', function() {
     document.getElementById('nav').classList.remove('open');
   });
 });
 
 // ===== ADMIN LOGIN =====
-const ADMIN_PASS = 'imraan2026';
-let isAdmin = localStorage.getItem('imraan_admin') === '1';
+var ADMIN_PASS = 'imraan2026';
+var isAdmin = false; // hamesha fresh start - login zaroori
 
 function updateAdminUI() {
-  const bar = document.getElementById('adminBar');
+  var bar = document.getElementById('adminBar');
   if (bar) bar.style.display = isAdmin ? 'flex' : 'none';
 }
-updateAdminUI();
+
+// Admin button - hamesha LOGIN modal kholega
+document.getElementById('adminBtn').onclick = function(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  document.getElementById('nav').classList.remove('open');
+  if (isAdmin) {
+    // already logged in this session -> add project
+    document.getElementById('addModal').style.display = 'flex';
+  } else {
+    // always show LOGIN first
+    document.getElementById('adminPass').value = '';
+    document.getElementById('adminModal').style.display = 'flex';
+  }
+};
 
 window.tryAdminLogin = function() {
-  const p = document.getElementById('adminPass').value;
+  var p = document.getElementById('adminPass').value;
   if (p === ADMIN_PASS) {
     isAdmin = true;
-    localStorage.setItem('imraan_admin', '1');
     document.getElementById('adminModal').style.display = 'none';
     document.getElementById('adminPass').value = '';
     updateAdminUI();
-    alert('Login successful!');
+    alert('Login successful! Ab neeche + Add Project use karo.');
   } else {
     alert('Wrong password');
   }
@@ -593,8 +598,10 @@ window.tryAdminLogin = function() {
 
 window.adminLogout = function() {
   isAdmin = false;
-  localStorage.removeItem('imraan_admin');
+  document.getElementById('addModal').style.display = 'none';
+  document.getElementById('adminModal').style.display = 'none';
   updateAdminUI();
+  alert('Logged out successfully');
 };
 
 window.saveProject = function() {
