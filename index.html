@@ -721,16 +721,21 @@ async function load() {
   try {
     const q = query(collection(db, "portfolio"), orderBy("createdAt", "desc"));
     const snap = await getDocs(q);
-    data = [];
-    snap.forEach(d => data.push({ id: d.id, ...d.data() }));
+    const firebaseData = [];
+    snap.forEach(d => firebaseData.push({ id: d.id, ...d.data() }));
     
-    // Agar Firebase empty hai to default works dikhao
-    if (data.length === 0) {
+    // Firebase + default works dono dikhao (photos hamesha dikhenge)
+    if (firebaseData.length > 0) {
+      data = [...firebaseData];
+      defaultWorks.forEach(dw => {
+        const exists = firebaseData.some(f => f.title === dw.title);
+        if (!exists) data.push(dw);
+      });
+    } else {
       data = [...defaultWorks];
     }
     render();
   } catch (e) {
-    // Firebase error hone pe bhi default works dikhao
     console.error(e);
     data = [...defaultWorks];
     render();
